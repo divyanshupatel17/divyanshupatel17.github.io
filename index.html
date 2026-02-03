@@ -517,11 +517,16 @@
     <div class="game-overlay" id="gameOverlay">
         <canvas id="game-canvas"></canvas>
         <div class="game-ui">
+            <!-- Exit button - moves to top on mobile -->
+            <button class="exit-arena-btn" id="exitArenaBtn">× Exit Arena</button>
+            
             <div class="game-loading" id="gameLoading">
                 <div class="loader-logo">ARENA</div>
-                <p>Loading Spaceship...</p>
+                <p>Fueling the spaceship… ⛽</p>
                 <div class="loader-bar"><span id="loadProgress"></span></div>
             </div>
+            
+            <!-- Desktop keyboard controls (hidden on mobile) -->
             <div class="game-controls" id="gameControls">
                 <div class="control-keys">
                     <span><span class="key">W</span> Forward</span>
@@ -531,7 +536,31 @@
                     <span><span class="key">↕</span> Pitch</span>
                 </div>
             </div>
-            <button class="exit-arena-btn" id="exitArenaBtn">× Exit Arena</button>
+            
+            <!-- Mobile touch controls (visible only on mobile) -->
+            <div class="mobile-touch-controls" id="mobileTouchControls">
+                <div class="touch-controls-row">
+                    <button class="touch-btn" id="touchForward" data-key="w">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+                    </button>
+                </div>
+                <div class="touch-controls-row">
+                    <button class="touch-btn" id="touchLeft" data-key="a">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l8-8v5h8v6h-8v5z"/></svg>
+                    </button>
+                    <button class="touch-btn touch-btn-brake" id="touchBrake" data-key="s">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
+                    </button>
+                    <button class="touch-btn" id="touchRight" data-key="d">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-8 8v-5H4v-6h8V4z"/></svg>
+                    </button>
+                </div>
+                <div class="touch-controls-row">
+                    <button class="touch-btn" id="touchBack" data-key="ArrowDown">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20l8-8h-5V4H9v8H4z"/></svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 

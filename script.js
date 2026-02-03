@@ -693,6 +693,7 @@ class SpaceshipGame {
         this.exitBtn = document.getElementById('exitArenaBtn');
         this.loading = document.getElementById('gameLoading');
         this.controls = document.getElementById('gameControls');
+        this.mobileControls = document.getElementById('mobileTouchControls');
         this.progressBar = document.getElementById('loadProgress');
 
         this.scene = null;
@@ -1074,6 +1075,11 @@ class SpaceshipGame {
                 this.loading.style.display = 'none';
                 this.controls.classList.add('active');
                 this.exitBtn.classList.add('active');
+                // Show mobile touch controls on mobile devices
+                if (this.mobileControls && window.innerWidth <= 768) {
+                    this.mobileControls.classList.add('active');
+                    this.setupTouchControls();
+                }
             }
         });
 
@@ -1328,6 +1334,57 @@ class SpaceshipGame {
         }
     }
 
+    setupTouchControls() {
+        if (!this.mobileControls) return;
+
+        const touchButtons = this.mobileControls.querySelectorAll('.touch-btn');
+
+        touchButtons.forEach(btn => {
+            const key = btn.getAttribute('data-key');
+
+            // Touch start
+            btn.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent scrolling/zooming
+                btn.classList.add('pressed');
+
+                // Simulate keydown
+                const event = { key: key, preventDefault: () => { } };
+                this.handleKeyDown(event);
+            }, { passive: false });
+
+            // Touch end
+            btn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                btn.classList.remove('pressed');
+
+                // Simulate keyup
+                const event = { key: key, preventDefault: () => { } };
+                this.handleKeyUp(event);
+            }, { passive: false });
+
+            // Mouse events for testing on desktop with mobile view
+            btn.addEventListener('mousedown', (e) => {
+                btn.classList.add('pressed');
+                const event = { key: key, preventDefault: () => { } };
+                this.handleKeyDown(event);
+            });
+
+            btn.addEventListener('mouseup', (e) => {
+                btn.classList.remove('pressed');
+                const event = { key: key, preventDefault: () => { } };
+                this.handleKeyUp(event);
+            });
+
+            btn.addEventListener('mouseleave', (e) => {
+                if (btn.classList.contains('pressed')) {
+                    btn.classList.remove('pressed');
+                    const event = { key: key, preventDefault: () => { } };
+                    this.handleKeyUp(event);
+                }
+            });
+        });
+    }
+
     exitArena() {
         // Stop arena music
         this.stopArenaMusic();
@@ -1340,6 +1397,9 @@ class SpaceshipGame {
 
         // Reset UI
         this.controls.classList.remove('active');
+        if (this.mobileControls) {
+            this.mobileControls.classList.remove('active');
+        }
         this.exitBtn.classList.remove('active');
 
         // Remove score display
