@@ -1,24 +1,39 @@
-# Welcome to My Portfolio! 👋
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&weight=600&size=30&duration=2000&pause=500&color=6366F1&center=true&vCenter=true&width=500&lines=Hey+there+;)+I'm+Divyanshu+Patel;AI%2FML+Engineer;Mobile+App+Developer;Full-Stack+Developer;DSA+Enthusiast" alt="Typing SVG" />
+</div>
 
+<div align="center">
+  <h4>Developer working at the intersection of AI/ML, mobile app development, and full-stack engineering.<br>3rd Year B.Tech Student at VIT Chennai.</h4>
+</div>
 
-Hey there! I’m **Divyanshu Patel**, an aspiring web developer and DSA enthusiast. Currently, I’m a third-year student at VIT Chennai with a passion for creating engaging web experiences.
+<div align="center">
+  <a href="https://github.com/divyanshupatel17">
+    <img src="https://github-readme-stats.vercel.app/api?username=divyanshupatel17&show_icons=true&theme=radical&hide_border=true" height="150" alt="stats graph" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=divyanshupatel17&layout=compact&theme=radical&hide_border=true" height="150" alt="languages graph" />
+  </a>
+</div>
 
-## 🌟 About Me
-I’m deeply interested in learning and honing my skills in **Data Structures and Algorithms (DSA)** and **Cybersecurity**. My journey into web development began with a desire to turn creative ideas into reality through code.
+<br>
 
-## 💻 What I Do
-I specialize in:
-- **Frontend Web Design**: Crafting beautiful and functional user interfaces.
-- **Digital Concept Arts**: Merging creativity with technology.
-- **Innovative Web Solutions**: From simple content structures to intricate design patterns.
+<div align="center">
+  <h3>🛠️ Tech Stack</h3>
+  
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,threejs,figma,nodejs,express,mongodb,mysql,postgres,firebase,supabase,python,c,cpp,java,dart,kotlin,flutter,android,docker,git,github,netlify,vercel,numpy,pandas,sklearn,tensorflow&perline=12" alt="My Skills" />
+</div>
 
-## 🎨 My Approach
-I value **clean design**, **thoughtful interactions**, and **simple content structures**. I believe in blending design with functionality to create seamless digital experiences.
+<br>
 
-## 🚀 Explore
-Dive into my projects and explore my work at the following links:
-
-- **[Vercel Portfolio](https://divyanshu-patel-portfolio.vercel.app/)**
-- **[Netlify Portfolio](https://divyanshu-patel-portfolio.netlify.app/)**
-
-Let’s connect and collaborate on exciting web ventures!
+<div align="center">
+  <a href="https://linkedin.com/in/patel-divyanshu">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/divyanshupatel17">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://www.instagram.com/patel_divyanshu_/">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+  </a>
+  <a href="mailto:itzdivyanshupatel@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+  </a>
+</div>
