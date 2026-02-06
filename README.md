@@ -6,13 +6,6 @@
   <h4>Developer working at the intersection of AI/ML, mobile app development, and full-stack engineering.<br>3rd Year B.Tech Student at VIT Chennai.</h4>
 </div>
 
-<div align="center">
-  <a href="https://github.com/divyanshupatel17">
-    <img src="https://github-readme-stats.vercel.app/api?username=divyanshupatel17&show_icons=true&theme=radical&hide_border=true" height="150" alt="stats graph" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=divyanshupatel17&layout=compact&theme=radical&hide_border=true" height="150" alt="languages graph" />
-  </a>
-</div>
-
 <br>
 
 <div align="center">
