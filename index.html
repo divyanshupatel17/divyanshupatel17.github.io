@@ -1,576 +1,527 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Divyanshu Patel - Web Developer & DSA Enthusiast | VIT Chennai">
-    <title>DIVYANSHU | Portfolio</title>
-    <link rel="icon"
-        href="https://raw.githubusercontent.com/divyanshupatel17/divyanshupatel17.github.io/main/src/png/main-favicon.png">
+    <title>Divyanshu Patel | Creative Developer</title>
+    <meta name="description" content="Portfolio of Divyanshu Patel - AI/ML, Mobile App, and Full Stack Developer">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap"
         rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
+    <!-- Tailwind CSS (via CDN for rapid styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050510',
+                        light: '#f0f0f0',
+                        accent: '#6366f1'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
+<body class="loading">
 
-    <div class="loader" id="loader">
-        <div class="loader-inner">
-            <div class="loader-logo">DP</div>
-            <div class="loader-bar"><span></span></div>
-        </div>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-text">DP</div>
     </div>
 
-    <canvas id="space-canvas"></canvas>
-
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#hero" class="nav-logo">DP<span class="dot">.</span></a>
-            <div class="nav-menu">
-                <a href="#hero" class="nav-link active">Home</a>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">Divyanshu<span class="dot">.</span></a>
+            <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#projects" class="nav-link">Work</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="nav-right">
-                <button class="theme-btn" id="themeBtn">
-                    <span class="sun">☀️</span>
-                    <span class="moon">🌙</span>
-                </button>
-                <button class="menu-btn" id="menuBtn">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+            <button class="menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#hero" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#skills" class="mobile-link">Skills</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-    </div>
-
-    <!-- HERO -->
-    <section id="hero" class="hero">
-        <div class="hero-container">
-            <div class="hero-left">
-                <h1 class="hero-title">
-                    <span class="line">Hey there ;)</span>
-                    <span class="line">I'm <span class="gradient">Divyanshu</span></span>
-                    <span class="line"><span class="gradient">Patel</span><span class="blink">.</span></span>
-                </h1>
-                <p class="hero-role"><span id="typingText"></span><span class="cursor-line">|</span></p>
-                <p class="hero-desc">Developer with a creative mindset. Currently studying at <strong>VIT
-                        Chennai</strong>.</p>
-                <div class="hero-buttons">
-                    <a href="mailto:itzdivyanshupatel@gmail.com" class="btn primary">Let's Talk <svg viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg></a>
-                    <a href="#projects" class="btn secondary">View Work</a>
-                    <a href="resume.pdf" download class="btn secondary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            style="width: 16px; height: 16px;">
-                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                        </svg>
-                        Resume
-                    </a>
-                </div>
-                <div class="hero-socials">
-                    <a href="https://github.com/divyanshupatel17" target="_blank" class="social-btn"><svg
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-                                fill="currentColor" />
-                        </svg></a>
-                    <a href="https://linkedin.com/in/divyanshupatel17" target="_blank" class="social-btn"><svg
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                                fill="currentColor" />
-                        </svg></a>
-                    <a href="mailto:itzdivyanshupatel@gmail.com" class="social-btn"><svg viewBox="0 0 24 24">
-                            <path
-                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                                fill="currentColor" />
-                        </svg></a>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="hero-image-wrapper">
-                    <img src="src/images/me.png" alt="Divyanshu Patel" class="hero-image">
-                    <div class="hero-image-glow"></div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-hint">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div><span>Scroll to explore</span>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">01 / About</span>
-                <h2 class="section-title">Who I <span class="gradient">Am</span></h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-lead">Hi! I'm <strong>Divyanshu</strong>, a developer working at the intersection of
-                        AI/ML, mobile app development, and full-stack engineering, with a creative approach to building
-                        software.
-                    </p>
-                    <p>Currently a third-year B.Tech student at <strong>VIT Chennai</strong>, I enjoy solving problems
-                        using data structures, algorithms, and machine learning, and turning ideas into scalable,
-                        real-world applications.</p>
-                    <p>I care deeply about clean architectures, thoughtful user experiences, and creative
-                        problem-solving, and I like building products that are both technically sound and visually
-                        intuitive.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card glass"><span class="stat-num">3+</span><span class="stat-label">Years</span>
-                    </div>
-                    <div class="stat-card glass"><span class="stat-num">30+</span><span
-                            class="stat-label">Projects</span></div>
-                    <div class="stat-card glass"><span class="stat-num">VIT</span><span
-                            class="stat-label">Chennai</span></div>
-                </div>
-            </div>
-            <div class="about-resume">
-                <a href="resume.pdf" download class="btn primary large">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Download Resume
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">02 / Skills</span>
-                <h2 class="section-title">Tech <span class="gradient">Stack</span></h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-group glass">
-                    <h3>🎨 Frontend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                alt="HTML5"><span>HTML5</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                alt="CSS3"><span>CSS3</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                alt="JavaScript"><span>JavaScript</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                alt="React"><span>React</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg"
-                                alt="Three.js"><span>Three.js</span></div>
-                        <div class="skill-item"><img src="https://cdn.simpleicons.org/greensock/88CE02"
-                                alt="GSAP"><span>GSAP</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg"
-                                alt="Canvas"><span>Canvas API</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opengl/opengl-original.svg"
-                                alt="WebGL"><span>WebGL</span></div>
-                    </div>
-                </div>
-                <div class="skill-group glass">
-                    <h3>💻 Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                alt="Python"><span>Python</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
-                                alt="C"><span>C</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                                alt="C++"><span>C++</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                                alt="Java"><span>Java</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
-                                alt="Dart"><span>Dart</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
-                                alt="Kotlin"><span>Kotlin</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                alt="SQL"><span>SQL</span></div>
-                    </div>
-                </div>
-                <div class="skill-group glass">
-                    <h3>🛠️ Tools & Backend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                                alt="Git"><span>Git</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                                alt="GitHub"><span>GitHub</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                                alt="Node.js"><span>Node.js</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                                alt="Express.js"><span>Express.js</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                                alt="MongoDB"><span>MongoDB</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                alt="MySQL"><span>MySQL</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                                alt="PostgreSQL"><span>PostgreSQL</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                                alt="Firebase"><span>Firebase</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
-                                alt="Supabase"><span>Supabase</span></div>
-                    </div>
-                </div>
-                <div class="skill-group glass">
-                    <h3>📱 Mobile & DevOps</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
-                                alt="Flutter"><span>Flutter</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"
-                                alt="Android"><span>Android SDK</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                                alt="Docker"><span>Docker</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
-                                alt="Netlify"><span>Netlify</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
-                                alt="Vercel"><span>Vercel</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                                alt="Figma"><span>Figma</span></div>
-                    </div>
-                </div>
-                <div class="skill-group glass">
-                    <h3>🤖 Data Science</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
-                                alt="NumPy"><span>NumPy</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
-                                alt="Pandas"><span>Pandas</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg"
-                                alt="Scikit-learn"><span>Scikit-learn</span></div>
-                    </div>
-                </div>
-                <div class="skill-group glass">
-                    <h3>📚 CS Fundamentals</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><img src="https://cdn.simpleicons.org/thealgorithms/00BCB4"
-                                alt="DSA"><span>DSA</span></div>
-                        <div class="skill-item"><img src="https://cdn.simpleicons.org/linux/FCC624"
-                                alt="OS"><span>Operating Systems</span></div>
-                        <div class="skill-item"><img src="https://cdn.simpleicons.org/cisco/1BA0D7"
-                                alt="CN"><span>Computer Networks</span></div>
-                        <div class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"
-                                alt="DBMS"><span>DBMS</span></div>
-                        <div class="skill-item"><img src="https://cdn.simpleicons.org/blueprint/137CBD"
-                                alt="SE"><span>Software Engineering</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS - Modern Cards -->
-    <section id="projects" class="projects section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-label">03 / Work</span>
-                <h2 class="section-title">Featured <span class="gradient">Projects</span></h2>
-                <p class="section-desc">Some of my recent work that I'm proud of</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1: VIT Verse -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="src/images/vitverse.png" alt="VIT Verse">
-                        <div class="project-overlay">
-                            <span class="project-num">01</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Mobile App / Flutter</span>
-                        <h3 class="project-title">VIT Verse</h3>
-                        <p class="project-desc">A comprehensive <strong>student companion app</strong> for VIT Chennai
-                            with attendance tracking, timetable management, and semester sync. <span
-                                class="project-highlight">4000+ active users</span></p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Dart</span>
-                            <span>Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://vitverse.divyanshupatel.com/" target="_blank" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                                Live
-                            </a>
-                            <a href="https://github.com/vit-verse/vitverse-app" target="_blank"
-                                class="project-btn secondary">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                                Source Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Leukemia Detection AI -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="src/images/leukemia-diagnosis-system.png" alt="Leukemia Detection AI">
-                        <div class="project-overlay">
-                            <span class="project-num">02</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">AI / Machine Learning</span>
-                        <h3 class="project-title">Leukemia Detection AI</h3>
-                        <p class="project-desc">AI-powered leukemia detection achieving <strong>98.93% accuracy</strong>
-                            using EfficientNetV2-S with Grad-CAM visualization.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Deep Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs/blob/main/docs/assets/Enhanced_EfficientNetV2S_MultiClass_Leukemia_Comparison_DIVYANSHU_PATEL.pdf"
-                                target="_blank" class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-                                </svg>
-                                Paper
-                            </a>
-                            <a href="https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs"
-                                target="_blank" class="project-btn secondary">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                                Source Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Neumorphism Generator -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="src/images/neumorphism-ui-generator.png" alt="Neumorphism Generator">
-                        <div class="project-overlay">
-                            <span class="project-num">03</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Web App / UI Tool</span>
-                        <h3 class="project-title">Neumorphism Generator</h3>
-                        <p class="project-desc">Interactive design tool with real-time preview and <strong>instant CSS
-                                generation</strong> for neumorphic UI elements.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://divyanshupatel17.github.io/make-your-own-neumorphism/" target="_blank"
-                                class="project-btn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                                Live
-                            </a>
-                            <a href="https://github.com/divyanshupatel17/make-your-own-neumorphism" target="_blank"
-                                class="project-btn secondary">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                                Source Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="contact-content">
-                <p class="contact-quote">"Learning, Living, and Leveling Up."</p>
-                <button class="get-in-touch-btn" id="getInTouchBtn">GetinTouch();</button>
-                <div class="contact-socials">
-                    <a href="https://www.instagram.com/patel_divyanshu_/" target="_blank" class="contact-social-btn"
-                        aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                            <circle cx="12" cy="12" r="4" />
-                            <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none" />
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/patel-divyanshu/" target="_blank" class="contact-social-btn"
-                        aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://github.com/divyanshupatel17" target="_blank" class="contact-social-btn"
-                        aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                    </a>
-                    <a href="mailto:itzdivyanshupatel@gmail.com" class="contact-social-btn" aria-label="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                            <path d="M22 6L12 13L2 6" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Email Modal -->
-    <div class="email-modal" id="emailModal">
-        <div class="email-modal-content glass">
-            <button class="email-modal-close" id="emailModalClose">&times;</button>
-            <h3>Send me a message</h3>
-            <form id="contactForm">
-                <input type="text" name="from_name" placeholder="Your Name" required>
-                <input type="email" name="from_email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit" class="btn primary">Send Message</button>
-            </form>
-            <p class="email-status" id="emailStatus"></p>
+    <!-- Mobile MenuOverlay -->
+    <div class="menu-overlay">
+        <div class="menu-items">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
         </div>
     </div>
 
-    <!-- SPACESHIP ARENA -->
-    <section id="arena-section" class="arena-section">
-        <div class="container" style="text-align: center;">
-            <button class="enter-arena-btn" id="enterArenaBtn">
-                <span>Enter Arena</span>
-            </button>
-        </div>
-    </section>
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
 
-    <!-- Game Arena Overlay -->
-    <div class="game-overlay" id="gameOverlay">
-        <canvas id="game-canvas"></canvas>
-        <div class="game-ui">
-            <!-- Exit button - moves to top on mobile -->
-            <button class="exit-arena-btn" id="exitArenaBtn">× Exit Arena</button>
-            
-            <div class="game-loading" id="gameLoading">
-                <div class="loader-logo">ARENA</div>
-                <p>Fueling the spaceship… ⛽</p>
-                <div class="loader-bar"><span id="loadProgress"></span></div>
-            </div>
-            
-            <!-- Desktop keyboard controls (hidden on mobile) -->
-            <div class="game-controls" id="gameControls">
-                <div class="control-keys">
-                    <span><span class="key">W</span> Forward</span>
-                    <span><span class="key">A</span> Left</span>
-                    <span><span class="key">D</span> Right</span>
-                    <span><span class="key">S</span> Brake</span>
-                    <span><span class="key">↕</span> Pitch</span>
+            <!-- Hero Section -->
+            <header class="hero" id="hero">
+                <div class="parallax-wrapper">
+                    <div class="parallax-bg hero-bg parallax-layer-back"></div>
+                    <div class="parallax-bg hero-bg parallax-layer-front"></div>
+                    <div class="parallax-overlay"></div>
                 </div>
-            </div>
-            
-            <!-- Mobile touch controls (visible only on mobile) -->
-            <div class="mobile-touch-controls" id="mobileTouchControls">
-                <div class="touch-controls-row">
-                    <button class="touch-btn" id="touchForward" data-key="w">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
-                    </button>
+                <div class="hero-container">
+                    <div class="hero-content" data-speed="0.8">
+                        <span class="hero-subtitle">Hello, I'm</span>
+                        <h1 class="hero-title">
+                            <span class="line">Divyanshu</span>
+                            <span class="line">Patel</span>
+                        </h1>
+                        <p class="hero-desc">
+                            Building digital experiences at the intersection of <br>
+                            <span class="highlight">AI/ML</span>, <span class="highlight">Mobile</span>, and <span
+                                class="highlight">Web</span>.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn primary">View Work</a>
+                            <a href="#contact" class="btn secondary">Contact Me</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="touch-controls-row">
-                    <button class="touch-btn" id="touchLeft" data-key="a">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l8-8v5h8v6h-8v5z"/></svg>
-                    </button>
-                    <button class="touch-btn touch-btn-brake" id="touchBrake" data-key="s">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
-                    </button>
-                    <button class="touch-btn" id="touchRight" data-key="d">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-8 8v-5H4v-6h8V4z"/></svg>
-                    </button>
+                <!-- Foreground Element (optional, can use image if available) -->
+                <!-- <div class="hero-foreground" data-speed="1.2"></div> -->
+                <div class="scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="line"></div>
                 </div>
-                <div class="touch-controls-row">
-                    <button class="touch-btn" id="touchBack" data-key="ArrowDown">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20l8-8h-5V4H9v8H4z"/></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </header>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Designed & Built by <span class="gradient">Divyanshu Patel</span></p>
-            <p class="footer-sub">Made with Three.js, GSAP & ❤️</p>
-        </div>
-    </footer>
+            <!-- About Section -->
+            <section id="about" class="section about">
+                <div class="parallax-wrapper">
+                    <div class="parallax-bg about-bg"></div>
+                    <div class="parallax-overlay"></div>
+                </div>
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">01</span>
+                        <h2 class="section-title">Who I Am</h2>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-text glass">
+                            <p>
+                                I'm a passionate developer currently studying at <strong>VIT Chennai</strong>.
+                                My journey involves solving complex problems using data structures, algorithms, and
+                                machine learning,
+                                and turning ideas into scalable, real-world applications.
+                            </p>
+                            <p>
+                                I truly care about clean architectures, thoughtful user experiences, and creative
+                                problem-solving.
+                            </p>
+                            <div class="about-stats">
+                                <div class="stat">
+                                    <span class="stat-num">3+</span>
+                                    <span class="stat-label">Years Exp</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-num">30+</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                            </div>
+                            <a href="resume.pdf" class="btn text-btn" download>Download Resume &nearr;</a>
+                        </div>
+                        <div class="about-image-wrapper">
+                            <div class="about-image parallax-img" data-speed="1.1">
+                                <!-- Using the existing image path -->
+                                <img src="src/images/me.png" alt="Divyanshu Patel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Skills Section -->
+            <section id="skills" class="section skills">
+                <div class="parallax-wrapper">
+                    <div class="parallax-bg skills-bg"></div>
+                    <div class="parallax-overlay"></div>
+                </div>
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">02</span>
+                        <h2 class="section-title">Tech Stack</h2>
+                    </div>
+
+                    <div class="skills-wrapper">
+                        <!-- Frontend -->
+                        <div class="skill-category glass">
+                            <h3>Frontend & Design</h3>
+                            <div class="skill-tags">
+                                <div class="skill-item"><i class="devicon-react-original colored"></i><span>React</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-threejs-original colored"></i><span>Three.js</span></div>
+                                <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span>
+                                </div>
+                                <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-tailwindcss-original colored"></i><span>Tailwind</span></div>
+                                <div class="skill-item"><i class="devicon-figma-plain colored"></i><span>Figma</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Backend -->
+                        <div class="skill-category glass">
+                            <h3>Backend & DB</h3>
+                            <div class="skill-tags">
+                                <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-express-original colored"></i><span>Express</span></div>
+                                <div class="skill-item"><i
+                                        class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                                <div class="skill-item"><i
+                                        class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+                                <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+                                <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile & Languages -->
+                        <div class="skill-category glass">
+                            <h3>Mobile & Core</h3>
+                            <div class="skill-tags">
+                                <div class="skill-item"><i
+                                        class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
+                                <div class="skill-item"><i class="devicon-dart-plain colored"></i><span>Dart</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-android-plain colored"></i><span>Android</span></div>
+                                <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span>
+                                </div>
+                                <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span>
+                                </div>
+                                <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span>
+                                </div>
+                                <div class="skill-item"><i class="devicon-kotlin-plain colored"></i><span>Kotlin</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DevOps & AI -->
+                        <div class="skill-category glass">
+                            <h3>DevOps & AI</h3>
+                            <div class="skill-tags">
+                                <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span>
+                                </div>
+                                <div class="skill-item"><i
+                                        class="devicon-netlify-plain colored"></i><span>Netlify</span></div>
+                                <div class="skill-item"><i
+                                        class="devicon-vercel-original colored"></i><span>Vercel</span></div>
+                                <div class="skill-item"><i
+                                        class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></div>
+                                <div class="skill-item"><i
+                                        class="devicon-scikitlearn-plain colored"></i><span>sklearn</span></div>
+                                <div class="skill-item"><i class="devicon-pandas-plain colored"></i><span>Pandas</span>
+                                </div>
+                                <div class="skill-item"><i class="devicon-numpy-plain colored"></i><span>NumPy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section (Horizontal Scroll) -->
+            <section id="projects" class="section projects-section relative w-full h-screen overflow-hidden">
+                <div class="parallax-wrapper">
+                    <div class="parallax-bg projects-bg"></div>
+                    <div class="parallax-overlay"></div>
+                </div>
+
+                <div class="projects-container flex h-full">
+                    <!-- Intro Slide -->
+                    <div class="projects-intro w-screen h-screen flex-shrink-0 flex items-center justify-center p-8">
+                        <div class="text-center max-w-2xl">
+                            <span class="section-tag text-accent font-heading text-xl mb-4 block">03</span>
+                            <h2 class="section-title text-6xl md:text-8xl font-bold mb-6">Featured Work</h2>
+                            <p class="section-desc text-xl text-gray-400">A selection of projects that define my
+                                journey.</p>
+                        </div>
+                    </div>
+
+                    <!-- Projects Wrapper -->
+                    <div class="projects-horizontal-wrapper flex items-center gap-[5vw] pr-[10vw]">
+                        <!-- Project 1 -->
+                        <div
+                            class="project-card glass w-[85vw] md:w-[45vw] h-[80vh] flex-shrink-0 flex flex-col overflow-hidden rounded-3xl bg-black/40 border border-white/10 group hover:border-accent/50 transition-all duration-500">
+                            <!-- Image Top (65%) -->
+                            <div class="project-preview h-[65%] w-full relative overflow-hidden bg-black/50">
+                                <img src="src/images/vitverse.png" alt="VIT Verse"
+                                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60">
+                                </div>
+                            </div>
+                            <!-- Details Bottom (35%) -->
+                            <div
+                                class="project-info h-[35%] w-full p-6 md:p-8 flex flex-col justify-between bg-[#050510]/80 backdrop-blur-md">
+                                <div>
+                                    <div
+                                        class="project-meta flex justify-between text-xs md:text-sm text-accent font-heading mb-2 uppercase tracking-widest">
+                                        <span class="project-type">Mobile App</span>
+                                        <span class="project-year">2024</span>
+                                    </div>
+                                    <h3
+                                        class="project-title text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                                        VIT Verse</h3>
+                                    <p
+                                        class="project-desc text-sm md:text-base text-gray-400 line-clamp-2 leading-relaxed">
+                                        Student companion app for VIT Chennai with attendance tracking, timetable
+                                        management, and semester sync. 4000+ active users.</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class="project-tech flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">Flutter</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">Dart</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">Firebase</span>
+                                    </div>
+                                    <div class="project-links flex gap-3">
+                                        <a href="https://vitverse.divyanshupatel.com/" target="_blank"
+                                            class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-accent hover:scale-110 transition-all border border-white/20"><i
+                                                class="ri-external-link-line text-lg"></i></a>
+                                        <a href="https://github.com/vit-verse/vitverse-app" target="_blank"
+                                            class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-accent hover:scale-110 transition-all border border-white/20"><i
+                                                class="ri-github-fill text-lg"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div
+                            class="project-card glass w-[85vw] md:w-[45vw] h-[80vh] flex-shrink-0 flex flex-col overflow-hidden rounded-3xl bg-black/40 border border-white/10 group hover:border-accent/50 transition-all duration-500">
+                            <div class="project-preview h-[65%] w-full relative overflow-hidden bg-black/50">
+                                <img src="src/images/leukemia-diagnosis-system.png" alt="Leukemia AI"
+                                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60">
+                                </div>
+                            </div>
+                            <div
+                                class="project-info h-[35%] w-full p-6 md:p-8 flex flex-col justify-between bg-[#050510]/80 backdrop-blur-md">
+                                <div>
+                                    <div
+                                        class="project-meta flex justify-between text-xs md:text-sm text-accent font-heading mb-2 uppercase tracking-widest">
+                                        <span class="project-type">AI Research</span>
+                                        <span class="project-year">2023</span>
+                                    </div>
+                                    <h3
+                                        class="project-title text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                                        Leukemia Detection AI</h3>
+                                    <p
+                                        class="project-desc text-sm md:text-base text-gray-400 line-clamp-2 leading-relaxed">
+                                        AI-powered leukemia detection achieving 98.93% accuracy using EfficientNetV2-S
+                                        with Grad-CAM visualization.</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class="project-tech flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">Python</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">TensorFlow</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">Deep
+                                            Learning</span>
+                                    </div>
+                                    <div class="project-links flex gap-3">
+                                        <a href="https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs"
+                                            target="_blank"
+                                            class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-accent hover:scale-110 transition-all border border-white/20"><i
+                                                class="ri-github-fill text-lg"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div
+                            class="project-card glass w-[85vw] md:w-[45vw] h-[80vh] flex-shrink-0 flex flex-col overflow-hidden rounded-3xl bg-black/40 border border-white/10 group hover:border-accent/50 transition-all duration-500">
+                            <div class="project-preview h-[65%] w-full relative overflow-hidden bg-black/50">
+                                <img src="src/images/neumorphism-ui-generator.png" alt="Neumorphism Generator"
+                                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60">
+                                </div>
+                            </div>
+                            <div
+                                class="project-info h-[35%] w-full p-6 md:p-8 flex flex-col justify-between bg-[#050510]/80 backdrop-blur-md">
+                                <div>
+                                    <div
+                                        class="project-meta flex justify-between text-xs md:text-sm text-accent font-heading mb-2 uppercase tracking-widest">
+                                        <span class="project-type">Web Tool</span>
+                                        <span class="project-year">2023</span>
+                                    </div>
+                                    <h3
+                                        class="project-title text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                                        Neumorphism Generator</h3>
+                                    <p
+                                        class="project-desc text-sm md:text-base text-gray-400 line-clamp-2 leading-relaxed">
+                                        Interactive design tool with real-time preview and instant CSS generation for
+                                        neumorphic UI elements.</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class="project-tech flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">HTML</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">CSS</span>
+                                        <span
+                                            class="px-3 py-1 bg-white/5 rounded-md text-xs border border-white/10 text-gray-300">JS</span>
+                                    </div>
+                                    <div class="project-links flex gap-3">
+                                        <a href="https://divyanshupatel17.github.io/make-your-own-neumorphism/"
+                                            target="_blank"
+                                            class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-accent hover:scale-110 transition-all border border-white/20"><i
+                                                class="ri-external-link-line text-lg"></i></a>
+                                        <a href="https://github.com/divyanshupatel17/make-your-own-neumorphism"
+                                            target="_blank"
+                                            class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-accent hover:scale-110 transition-all border border-white/20"><i
+                                                class="ri-github-fill text-lg"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spacer to allow scrolling past last item -->
+                        <div class="w-[20vw] h-full flex-shrink-0"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <footer id="contact"
+                class="section contact min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
+                <div class="parallax-wrapper absolute inset-0 w-full h-full">
+                    <!-- TRUE COMPOSITE LAYERS -->
+                    <div class="parallax-bg contact-layer-back"></div>
+                    <div class="parallax-bg contact-layer-mid"></div>
+                    <div class="parallax-bg contact-layer-front"></div>
+                    <div class="parallax-overlay"></div>
+                </div>
+
+                <div
+                    class="contact-content grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl relative z-10 px-6 py-20">
+
+                    <!-- LEFT: Form -->
+                    <div
+                        class="contact-form order-2 md:order-1 glass p-8 rounded-3xl bg-black/40 border border-white/5 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-6 font-heading">Send a Message</h3>
+                        <form class="flex flex-col gap-5">
+                            <div class="form-group">
+                                <div class="relative">
+                                    <i
+                                        class="ri-user-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                                    <input type="text" placeholder="Your Name"
+                                        class="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:border-accent focus:bg-white/10 transition-all outline-none">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="relative">
+                                    <i
+                                        class="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                                    <input type="email" placeholder="Your Email"
+                                        class="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:border-accent focus:bg-white/10 transition-all outline-none">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="relative">
+                                    <i class="ri-message-3-line absolute left-4 top-6 text-gray-400 text-lg"></i>
+                                    <textarea placeholder="Your Message" rows="4"
+                                        class="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:border-accent focus:bg-white/10 transition-all outline-none resize-none"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-accent hover:bg-indigo-600 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-lg hover:shadow-accent/25">
+                                Send Message <i
+                                    class="ri-send-plane-fill group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- RIGHT: Details & Links -->
+                    <div
+                        class="contact-methods order-1 md:order-2 flex flex-col justify-center gap-8 text-right md:text-right">
+                        <div>
+                            <span
+                                class="text-accent text-sm font-bold tracking-widest uppercase mb-2 block">Contact</span>
+                            <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 font-heading leading-tight">Let's
+                                <br>Talk.</h2>
+                            <p class="text-lg text-gray-400 leading-relaxed max-w-md ml-auto">Have a project in mind or
+                                just want to chat? I'm open to new opportunities and collaborations.</p>
+                        </div>
+
+                        <div class="flex flex-col gap-6 items-end mt-4">
+                            <a href="mailto:itzdivyanshupatel@gmail.com"
+                                class="text-xl md:text-2xl font-bold text-white hover:text-accent transition-colors flex items-center gap-3">
+                                itzdivyanshupatel@gmail.com <i class="ri-mail-send-line text-accent"></i>
+                            </a>
+                            <div class="social-links flex gap-4">
+                                <a href="https://github.com/divyanshupatel17" target="_blank"
+                                    class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:scale-110 transition-all group backdrop-blur-sm">
+                                    <i
+                                        class="ri-github-fill text-2xl text-white group-hover:rotate-12 transition-transform"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/divyanshu-patel-432824286/" target="_blank"
+                                    class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:scale-110 transition-all group backdrop-blur-sm">
+                                    <i
+                                        class="ri-linkedin-fill text-2xl text-white group-hover:rotate-12 transition-transform"></i>
+                                </a>
+                                <a href="https://www.instagram.com/divyanshupatel17/" target="_blank"
+                                    class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:scale-110 transition-all group backdrop-blur-sm">
+                                    <i
+                                        class="ri-instagram-line text-2xl text-white group-hover:rotate-12 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright Footer -->
+                <div class="absolute bottom-6 left-0 w-full text-center z-20 opacity-50">
+                    <p class="text-xs text-gray-400 font-heading tracking-wider">2026 &copy; Divyanshu Patel</p>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
 
