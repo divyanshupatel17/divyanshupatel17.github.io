@@ -149,45 +149,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     card.innerHTML = `
-                        <table class="hackathon-details">
-                            <tbody>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <td>${hackathon.projectName}</td>
-                                </tr>
-                                <tr>
-                                    <th>Hackathon</th>
-                                    <td>${hackathon.hackathonName}</td>
-                                </tr>
-                                <tr>
-                                    <th>Organizer</th>
-                                    <td>${hackathon.organizer}</td>
-                                </tr>
-                                <tr>
-                                    <th>Hackathon URL</th>
-                                    <td><a href="${hackathon.hackathonUrl}" target="_blank">Event Page</a></td>
-                                </tr>
-                                <tr>
-                                    <th>Live Demo</th>
-                                    <td><a href="${hackathon.liveDemo}" target="_blank">View Dashboard</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <div class="hackathon-content">
-                            <h4>Problem Statement:</h4>
-                            <p>${hackathon.problemStatement}</p>
-                            
-                            <h4>Solution/Approach:</h4>
-                            <p>${hackathon.solution}</p>
+                        <div class="hackathon-header">
+                            <div class="hackathon-icon">
+                                <i class="ri-trophy-line"></i>
+                            </div>
+                            <div class="hackathon-titles">
+                                <h3>${hackathon.projectName}</h3>
+                                <div class="hackathon-badges">
+                                    <span class="hackathon-badge">${hackathon.hackathonName}</span>
+                                    <span class="hackathon-date-badge">${formattedDate}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hackathon-hover-details">
+                            <div class="detail-block">
+                                <strong>Problem:</strong>
+                                <p>${hackathon.problemStatement}</p>
+                            </div>
+                            <div class="detail-block">
+                                <strong>Solution:</strong>
+                                <p>${hackathon.solution}</p>
+                            </div>
+                            <div class="hackathon-links">
+                                <a href="${hackathon.hackathonUrl}" target="_blank">Event Page <i class="ri-external-link-line"></i></a>
+                                <a href="${hackathon.liveDemo}" target="_blank">Live Demo <i class="ri-arrow-right-up-line"></i></a>
+                            </div>
                         </div>
                         
-                        <div class="hackathon-footer">
-                            <span class="hackathon-date">${formattedDate}</span>
-                            <a href="${hackathon.repoUrl}" target="_blank" class="hackathon-repo-btn" title="View Source Code">
-                                <i class="ri-github-fill"></i>
-                            </a>
-                        </div>
+                        <a href="${hackathon.repoUrl}" target="_blank" class="hackathon-github" title="View Source Code">
+                            <i class="ri-github-fill"></i>
+                        </a>
                     `;
 
                     hackathonContainer.appendChild(card);
