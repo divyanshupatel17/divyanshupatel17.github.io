@@ -78,60 +78,6 @@ body.loaded {
     border: 1px solid var(--glass-border);
 }
 
-/* Parallax Backgrounds */
-.parallax-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.parallax-bg {
-    position: absolute;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
-    background-size: cover;
-    background-position: center;
-    /* Will be animated by GSAP */
-}
-
-/* Contact Parallax Layers */
-.contact-layer-back {
-    background-image: url('src/parallax/gradient-landscape-design-background/6073419.ai');
-    /* Fallback/Placeholder if AI not supported directly in browser, usually need JPG/PNG */
-    /* Assuming user has converted or using placeholder, keeping generic abstract gradient for now if image invalid */
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-}
-
-.contact-layer-mid {
-    /* Mid ground mountains? */
-    background: url('https://raw.githubusercontent.com/divyanshupatel17/portfolio-assets/main/mountains_mid.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    opacity: 0.5;
-}
-
-.contact-layer-front {
-    /* Foreground mist? */
-    background: radial-gradient(circle at bottom, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
-}
-
-.parallax-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 5, 16, 0.6);
-    z-index: 2;
-}
-
 /* Fade In Animation */
 .skills-grid {
     display: grid;
@@ -173,5 +119,262 @@ body.loaded {
 /* Custom Selection */
 ::selection {
     background: var(--accent);
+    color: white;
+}
+
+/* Hackathon Section */
+.hackathon-card {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    /* Slightly smaller radius */
+    padding: 0;
+    /* Reset padding */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    /* Rely on content hiding for "minimal" feel */
+    min-height: 90px;
+    /* Reduced min-height */
+}
+
+/* Tiers */
+.hackathon-icon-box.tier-gold {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.25), rgba(234, 179, 8, 0.1));
+    border: 1px solid rgba(234, 179, 8, 0.6);
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.2);
+    /* Glow */
+}
+
+.hackathon-icon-box.tier-gold i {
+    color: #fca5a5;
+    background: linear-gradient(to bottom right, #fef08a, #ca8a04);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(234, 179, 8, 0.5));
+    /* Icon Glow */
+}
+
+.hackathon-icon-box.tier-silver {
+    background: linear-gradient(135deg, rgba(148, 163, 184, 0.15), rgba(148, 163, 184, 0.05));
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: 0 0 5px rgba(148, 163, 184, 0.1);
+    /* Subtle Glow */
+}
+
+.hackathon-icon-box.tier-silver i {
+    color: #e2e8f0;
+    background: linear-gradient(to bottom right, #f8fafc, #64748b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hackathon-icon-box.tier-bronze {
+    background: linear-gradient(135deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05));
+    border: 1px solid rgba(120, 53, 15, 0.3);
+    opacity: 0.8;
+    /* Muted appearance */
+}
+
+.hackathon-icon-box.tier-bronze i {
+    color: #92400e;
+    background: linear-gradient(to bottom right, #d97706, #78350f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Expansion Logic (Hover OR JS Class) */
+.hackathon-card:hover,
+.hackathon-card.row-expanded {
+    background: rgba(15, 15, 20, 0.95);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.15);
+    transform: translateY(-3px);
+    /* Smaller lift */
+    z-index: 10;
+}
+
+.hackathon-card-content {
+    padding: 1rem;
+    /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Header */
+.hackathon-header {
+    display: flex;
+    gap: 0.75rem;
+    /* Reduced gap */
+    align-items: center;
+    /* Center align for compactness */
+    margin-bottom: 0.25rem;
+}
+
+.hackathon-icon-box {
+    width: 36px;
+    /* Reduced size */
+    height: 36px;
+    /* Reduced size */
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 8px;
+    /* Smaller radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hackathon-icon-box i {
+    font-size: 1.1rem;
+    /* Smaller icon */
+    color: #a78bfa;
+    /* Light violet */
+    background: linear-gradient(to bottom right, #c4b5fd, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hackathon-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hackathon-name {
+    font-size: 0.65rem;
+    /* Smaller font */
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.1rem;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    /* Reduced from 1.25rem */
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+}
+
+/* Date Row */
+.hackathon-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #6b7280;
+    /* Gray-500 */
+    font-size: 0.75rem;
+    /* Smaller date */
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Expandable Details */
+/* Expandable Details */
+.hackathon-details-expand {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Layout for button alignment */
+    display: flex;
+    flex-direction: column;
+}
+
+.hackathon-card:hover .hackathon-details-expand,
+.hackathon-card.row-expanded .hackathon-details-expand {
+    max-height: 600px;
+    /* Increased to allow full expansion */
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0.75rem;
+    flex: 1;
+    /* Take up remaining space in the card */
+}
+
+.detail-section {
+    margin-bottom: 0.75rem;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.65rem;
+    /* Smaller label */
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.15rem;
+}
+
+.detail-text {
+    font-size: 0.8rem;
+    /* Smaller text */
+    color: #9ca3af;
+    /* Gray-400 */
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Action Buttons */
+.hackathon-actions {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    /* Add spacing from text */
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    /* Compact buttons */
+    border-radius: 6px;
+    font-size: 0.75rem;
+    /* Smaller button text */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-action.primary {
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+}
+
+.btn-action.primary:hover {
+    background: #7c3aed;
+    /* Darker violet */
+    border-color: #7c3aed;
+}
+
+.btn-action.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+    /* Gray-200 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-action.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
