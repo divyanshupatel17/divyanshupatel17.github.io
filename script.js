@@ -136,59 +136,106 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Sort by date (newest first)
                 data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-                data.forEach(hackathon => {
-                    const card = document.createElement('div');
-                    card.className = 'hackathon-card fade-in';
+                function renderHackathons(data) {
+                    hackathonContainer.innerHTML = '';
 
-                    // Format Date
-                    const dateObj = new Date(hackathon.date);
-                    const formattedDate = dateObj.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
+                    // 1. Create Cards
+                    data.forEach((hackathon, index) => {
+                        const card = document.createElement('div');
+                        card.classList.add('hackathon-card');
+                        card.dataset.index = index; // Store index for row calc
 
-                    card.innerHTML = `
-                        <div class="hackathon-header">
-                            <div class="hackathon-icon">
-                                <i class="ri-trophy-line"></i>
-                            </div>
-                            <div class="hackathon-titles">
-                                <h3>${hackathon.projectName}</h3>
-                                <div class="hackathon-badges">
-                                    <span class="hackathon-badge">${hackathon.hackathonName}</span>
-                                    <span class="hackathon-date-badge">${formattedDate}</span>
+                        // Add tier class for styling
+                        const tier = hackathon.tier || 'bronze';
+
+                        const dateObj = new Date(hackathon.date);
+                        const formattedDate = dateObj.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+
+                        card.innerHTML = `
+                            <div class="hackathon-card-content">
+                                <div class="hackathon-header">
+                                    <div class="hackathon-icon-box tier-${tier}">
+                                        <i class="ri-trophy-fill"></i>
+                                    </div>
+                                    <div class="hackathon-meta">
+                                        <span class="hackathon-name">${hackathon.hackathonName}</span>
+                                        <h3 class="project-title">${hackathon.projectName}</h3>
+                                    </div>
+                                </div>
+                                
+                                <div class="hackathon-date-row">
+                                    <i class="ri-calendar-line"></i> ${formattedDate}
+                                </div>
+
+                                <div class="hackathon-details-expand">
+                                    <div class="detail-section">
+                                        <span class="detail-label">PROBLEM</span>
+                                        <p class="detail-text">${hackathon.problemStatement}</p>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <span class="detail-label">SOLUTION</span>
+                                        <p class="detail-text">${hackathon.solution}</p>
+                                    </div>
+
+                                    <div class="hackathon-actions">
+                                        <a href="${hackathon.repoUrl}" target="_blank" class="btn-action primary">
+                                            <i class="ri-github-fill"></i> GitHub
+                                        </a>
+                                        <a href="${hackathon.hackathonUrl}" target="_blank" class="btn-action secondary">
+                                            Event Page <i class="ri-arrow-right-up-line"></i>
+                                        </a>
+                                        <a href="${hackathon.liveDemo}" target="_blank" class="btn-action secondary">
+                                            Live Demo <i class="ri-arrow-right-line"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        `;
 
-                        <div class="hackathon-hover-details">
-                            <div class="detail-block">
-                                <strong>Problem:</strong>
-                                <p>${hackathon.problemStatement}</p>
-                            </div>
-                            <div class="detail-block">
-                                <strong>Solution:</strong>
-                                <p>${hackathon.solution}</p>
-                            </div>
-                            <div class="hackathon-links">
-                                <a href="${hackathon.hackathonUrl}" target="_blank">Event Page <i class="ri-external-link-line"></i></a>
-                                <a href="${hackathon.liveDemo}" target="_blank">Live Demo <i class="ri-arrow-right-up-line"></i></a>
-                            </div>
-                        </div>
-                        
-                        <a href="${hackathon.repoUrl}" target="_blank" class="hackathon-github" title="View Source Code">
-                            <i class="ri-github-fill"></i>
-                        </a>
-                    `;
+                        hackathonContainer.appendChild(card);
 
-                    hackathonContainer.appendChild(card);
+                        // Trigger animation for new elements
+                        if (typeof observer !== 'undefined') {
+                            observer.observe(card);
+                        }
+                    });
 
-                    // Trigger animation for new elements
-                    if (typeof observer !== 'undefined') {
-                        observer.observe(card);
-                    }
-                });
+                    // 2. Implement Synchronized Row Hover
+                    const cards = Array.from(document.querySelectorAll('.hackathon-card'));
+
+                    const getGridColumns = () => {
+                        if (window.innerWidth >= 1024) return 3; // lg
+                        if (window.innerWidth >= 768) return 2;  // md
+                        return 1;                                // base
+                    };
+
+                    const handleRowHover = (index, isHovering) => {
+                        const cols = getGridColumns();
+                        const rowStart = Math.floor(index / cols) * cols;
+                        const rowEnd = rowStart + cols;
+
+                        for (let i = rowStart; i < rowEnd; i++) {
+                            if (cards[i]) {
+                                if (isHovering) {
+                                    cards[i].classList.add('row-expanded');
+                                } else {
+                                    cards[i].classList.remove('row-expanded');
+                                }
+                            }
+                        }
+                    };
+
+                    cards.forEach((card, index) => {
+                        card.addEventListener('mouseenter', () => handleRowHover(index, true));
+                        card.addEventListener('mouseleave', () => handleRowHover(index, false));
+                    });
+                }
+                renderHackathons(data);
             })
             .catch(error => console.error('Error loading hackathons:', error));
     }
