@@ -1,0 +1,24 @@
+[
+  {
+    "projectName": "AI-Powered Storage Orchestration Platform",
+    "hackathonName": "VIT-SanDisk Hackathon 2026",
+    "organizer": "Vellore Institute of Technology",
+    "hackathonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf6Bz2VlbPMQEIv7JnoRLNjM7lbjk2iluQy75jr5wpdRv9Gzg/viewform",
+    "liveDemo": "https://divyanshupatel.com/GuardianDrive-sandisk/",
+    "problemStatement": "Optimizing storage solutions using AI.",
+    "solution": "Developed an orchestration platform that uses AI to predict storage needs and optimize data placement.",
+    "date": "2026-02-13",
+    "repoUrl": "https://github.com/divyanshupatel17/GuardianDrive-sandisk"
+  },
+  {
+    "projectName": "Smart City Traffic Management",
+    "hackathonName": "Smart India Hackathon 2025",
+    "organizer": "Government of India",
+    "hackathonUrl": "https://sih.gov.in",
+    "liveDemo": "https://divyanshupatel.com/smart-traffic",
+    "problemStatement": "Reducing traffic congestion in urban areas.",
+    "solution": "Implemented a real-time traffic signal control system using computer vision and IoT sensors.",
+    "date": "2025-11-20",
+    "repoUrl": "https://github.com/divyanshupatel17/smart-traffic"
+  }
+]

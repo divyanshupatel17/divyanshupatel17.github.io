@@ -75,17 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Animations ---
 
-    // 1. Hero Parallax
-    gsap.to(".parallax-bg", {
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        },
-        yPercent: 30, // Move background down
-        scale: 1.1 // Subtle scale
-    });
+
 
     // 2. Project Cards Fade In
     const projectCards = document.querySelectorAll('.project-card');
@@ -104,20 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 3. Contact Section Composite Parallax
-    const contactTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".contact",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-        }
-    });
 
-    contactTimeline
-        .to(".contact-layer-back", { yPercent: 20 }, 0) // Moves slower
-        .to(".contact-layer-mid", { yPercent: 40 }, 0)  // Moves medium
-        .to(".contact-layer-front", { yPercent: 60 }, 0); // Moves faster
 
 
     // 4. Fade In Elements (Observer)
@@ -148,4 +125,79 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Hackathon Data Fetching & Rendering ---
+    const hackathonContainer = document.getElementById('hackathon-container');
+
+    if (hackathonContainer) {
+        fetch('src/hackathons.json')
+            .then(response => response.json())
+            .then(data => {
+                // Sort by date (newest first)
+                data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                data.forEach(hackathon => {
+                    const card = document.createElement('div');
+                    card.className = 'hackathon-card fade-in';
+
+                    // Format Date
+                    const dateObj = new Date(hackathon.date);
+                    const formattedDate = dateObj.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    card.innerHTML = `
+                        <table class="hackathon-details">
+                            <tbody>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <td>${hackathon.projectName}</td>
+                                </tr>
+                                <tr>
+                                    <th>Hackathon</th>
+                                    <td>${hackathon.hackathonName}</td>
+                                </tr>
+                                <tr>
+                                    <th>Organizer</th>
+                                    <td>${hackathon.organizer}</td>
+                                </tr>
+                                <tr>
+                                    <th>Hackathon URL</th>
+                                    <td><a href="${hackathon.hackathonUrl}" target="_blank">Event Page</a></td>
+                                </tr>
+                                <tr>
+                                    <th>Live Demo</th>
+                                    <td><a href="${hackathon.liveDemo}" target="_blank">View Dashboard</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="hackathon-content">
+                            <h4>Problem Statement:</h4>
+                            <p>${hackathon.problemStatement}</p>
+                            
+                            <h4>Solution/Approach:</h4>
+                            <p>${hackathon.solution}</p>
+                        </div>
+                        
+                        <div class="hackathon-footer">
+                            <span class="hackathon-date">${formattedDate}</span>
+                            <a href="${hackathon.repoUrl}" target="_blank" class="hackathon-repo-btn" title="View Source Code">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </div>
+                    `;
+
+                    hackathonContainer.appendChild(card);
+
+                    // Trigger animation for new elements
+                    if (typeof observer !== 'undefined') {
+                        observer.observe(card);
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading hackathons:', error));
+    }
 });
