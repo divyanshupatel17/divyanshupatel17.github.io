@@ -1,5 +1,16 @@
 [
   {
+    "projectName": "SafePay Guardian - Ethereum-Powered UPI Fraud Shield",
+    "hackathonName": "DevsHouse '26 (Devfolio)",
+    "organizer": "VIT Chennai",
+    "hackathonUrl": "https://devshouse.devfolio.co/",
+    "liveDemo": "https://github.com/divyanshupatel17/SafePay-Guardian-Devhouse26/blob/main/docs/SafePay_Presentation_TeamPixels.pdf",
+    "problemStatement": "UPI fraud is an epidemic with users losing money to scams within minutes. Vulnerable users lack tools to verify callers, and existing apps optimize for speed over safety.",
+    "solution": "SafePay Guardian: An Ethereum-Powered UPI Fraud Shield. Creates smart escrow links for risky payments, routing funds through a smart contract with an AI-driven risk engine before releasing them.",
+    "date": "2026-03-08",
+    "repoUrl": "https://github.com/divyanshupatel17/SafePay-Guardian-Devhouse26"
+  },
+  {
     "projectName": "CaneIQ - Precision AI Cane Quality Assessment",
     "hackathonName": "ISMA SugarNXT Hackathon 2026",
     "organizer": "ISMA via Hack2Skill",
