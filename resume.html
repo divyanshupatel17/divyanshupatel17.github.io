@@ -57,11 +57,9 @@
             border: 1px solid rgba(139, 92, 246, 0.3);
             box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
             padding: 40px;
-            /* Standardize padding */
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            /* Slight rounded corners for the card look */
         }
 
         /* Ambient Glow */
@@ -90,7 +88,6 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #8b5cf6;
-            /* Lavender */
             border-bottom: 2px solid rgba(139, 92, 246, 0.3);
             padding-bottom: 4px;
             margin-bottom: 12px;
@@ -111,17 +108,31 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            /* Stick to top right */
             z-index: 50;
             display: flex;
             gap: 12px;
+        }
+
+        /* ISRO badge highlight */
+        .isro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: #c4b5fd;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
             .resume-card {
                 padding: 20px;
                 margin-bottom: 80px;
-                /* Space for fixed bottom bar */
             }
 
             .action-bar {
@@ -144,15 +155,12 @@
             .action-bar a {
                 flex: 1;
                 padding: 10px 0;
-                /* Vertical padding only, horizontal handled by flex */
                 justify-content: center;
                 font-size: 0.75rem;
-                /* text-xs */
                 white-space: nowrap;
                 border-radius: 9999px;
             }
 
-            /* Hide icons if needed, or keep them but ensure layout holds */
             .action-bar a i {
                 font-size: 1rem;
             }
@@ -187,18 +195,21 @@
                 <h1 class="text-4xl font-bold font-heading text-white tracking-wide mb-2">DIVYANSHU PATEL</h1>
                 <p class="text-gray-400 text-sm mb-3">Chennai, India</p>
                 <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-300">
-                    <a href="mailto:divyanshupatel.dev@gmail.com" class="flex items-center gap-1 hover:text-accent"><i
-                            class="ri-mail-line"></i> divyanshupatel.dev@gmail.com</a>
+                    <a href="mailto:divyanshupatel.dev@gmail.com" class="flex items-center gap-1 hover:text-accent">
+                        <i class="ri-mail-line"></i> divyanshupatel.dev@gmail.com
+                    </a>
                     <span class="text-gray-600">|</span>
-                    <a href="tel:+919301503581" class="flex items-center gap-1 hover:text-accent"><i
-                            class="ri-phone-line"></i> +91 9301503581</a>
+                    <a href="tel:+919301503581" class="flex items-center gap-1 hover:text-accent">
+                        <i class="ri-phone-line"></i> +91 9301503581
+                    </a>
                     <span class="text-gray-600">|</span>
-                    <a href="https://divyanshupatel.com" target="_blank"
-                        class="flex items-center gap-1 hover:text-accent"><i class="ri-global-line"></i>
-                        divyanshupatel.com</a>
+                    <a href="https://divyanshupatel.com" target="_blank" class="flex items-center gap-1 hover:text-accent">
+                        <i class="ri-global-line"></i> divyanshupatel.com
+                    </a>
                     <span class="text-gray-600">|</span>
-                    <a href="https://linkedin.com/in/patel-divyanshu" target="_blank"
-                        class="flex items-center gap-1 hover:text-accent"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+                    <a href="https://linkedin.com/in/patel-divyanshu" target="_blank" class="flex items-center gap-1 hover:text-accent">
+                        <i class="ri-linkedin-fill"></i> LinkedIn
+                    </a>
                 </div>
             </div>
 
@@ -206,10 +217,10 @@
             <div class="mb-6">
                 <h2 class="section-title">Summary</h2>
                 <p class="text-sm leading-relaxed text-gray-300 text-justify">
-                    Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning with
-                    hands-on experience building and deploying production-grade mobile and machine learning systems.
-                    Independent developer of a Flutter application serving over 4,000 users. Strong in full-stack
-                    development, cloud-backed architectures, performance optimization, and system design.
+                    Computer Science undergraduate specializing in AI and ML with hands-on experience in production mobile
+                    applications, deep learning systems, and space-tech research. Currently a Summer Trainee at URSC ISRO,
+                    Bengaluru, applying Graph Neural Networks to satellite constellation routing. Independent developer of a
+                    Flutter app serving 4,000+ users.
                 </p>
             </div>
 
@@ -218,7 +229,7 @@
                 <h2 class="section-title">Education</h2>
                 <div class="flex justify-between items-baseline mb-1">
                     <h3 class="font-bold text-white">Vellore Institute of Technology (VIT), Chennai</h3>
-                    <span class="text-sm text-gray-400 italic">Aug 2023 -- May 2027</span>
+                    <span class="text-sm text-gray-400 italic">Aug 2023 – May 2027</span>
                 </div>
                 <div class="flex justify-between items-baseline">
                     <p class="text-sm text-gray-300 italic">B.Tech in Computer Science and Engineering (AI and ML)</p>
@@ -230,10 +241,33 @@
             <div class="mb-6">
                 <h2 class="section-title">Experience</h2>
 
+                <!-- ISRO -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-bold text-white">Summer Research Trainee</h3>
+                        <span class="text-sm text-gray-400 italic">May 2025 – Present</span>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <p class="text-sm text-gray-300 italic">
+                            URSC – ISRO, Bengaluru &mdash; MPOG Department
+                            <span class="isro-badge ml-2"><i class="ri-rocket-line text-xs"></i> ISRO</span>
+                        </p>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
+                        <li>Applying Graph Neural Networks to optimize inter-satellite routing in LEO constellations, modelling
+                            topology as dynamic time-varying graphs to minimize latency, link contention, and handover overhead.</li>
+                        <li>Benchmarking GNN-based routing against Dijkstra, shortest-path, and flow-based baselines across
+                            simulated multi-plane constellation scenarios.</li>
+                        <li>Aligning algorithmic outputs with MPOG operational constraints and real-world satellite scheduling
+                            requirements in collaboration with URSC scientists.</li>
+                    </ul>
+                </div>
+
+                <!-- VIT Verse -->
                 <div class="mb-4">
                     <div class="flex justify-between items-baseline mb-1">
                         <h3 class="font-bold text-white">Independent Software Developer</h3>
-                        <span class="text-sm text-gray-400 italic">Jan 2024 -- Present</span>
+                        <span class="text-sm text-gray-400 italic">Jan 2024 – Feb 2026</span>
                     </div>
                     <div class="flex justify-between items-baseline mb-2">
                         <p class="text-sm text-gray-300 italic">VIT Verse – Student Productivity Mobile Application</p>
@@ -241,15 +275,12 @@
                             class="text-xs text-accent border border-accent/30 px-2 py-0.5 rounded hover:bg-accent/10">Live</a>
                     </div>
                     <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
-                        <li>Designed, developed, deployed, and maintained a production Flutter mobile application used
-                            by over 4,000 active users.</li>
-                        <li>Owned the complete software development lifecycle including system design, UI/UX, frontend
-                            development, backend integration, authentication, deployment, monitoring, and iteration.
-                        </li>
-                        <li>Implemented an offline-first architecture using Firebase, Supabase, SQLite, and REST APIs to
-                            ensure reliability under low or unstable network conditions.</li>
-                        <li>Integrated cloud services for real-time data synchronization, push notifications, and secure
-                            media storage while optimizing performance through caching and lazy loading.</li>
+                        <li>Designed, built, and shipped a production Flutter app serving 4,000+ active users, owning the full
+                            lifecycle from system design and UI/UX to deployment, monitoring, and iteration.</li>
+                        <li>Implemented offline-first architecture with Firebase, Supabase, SQLite, and REST APIs; integrated push
+                            notifications, real-time sync, and secure media storage.</li>
+                        <li>Optimized performance via caching, lazy loading, and widget-level rebuilds; monitored crash analytics
+                            to drive iterative improvements over two academic years.</li>
                     </ul>
                 </div>
             </div>
@@ -258,8 +289,26 @@
             <div class="mb-6">
                 <h2 class="section-title">Projects</h2>
 
-                <!-- Project 1 -->
-                <div class="mb-3">
+                <!-- Project 1: Self-Healing Monocular Digital Twin -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-bold text-white">Self-Healing Monocular Digital Twin System</h3>
+                        <a href="https://github.com/divyanshupatel17" target="_blank"
+                            class="text-xs text-accent border border-accent/30 px-2 py-0.5 rounded hover:bg-accent/10">GitHub</a>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
+                        <li>Built an end-to-end monocular digital twin pipeline for autonomous edge vehicles — ingesting dashcam
+                            video, simulating adverse conditions (fog, blur, occlusion), and recovering degraded regions via
+                            CLAHE-based contrast restoration and selective sharpening.</li>
+                        <li>Integrated YOLOv8 object detection with monocular 2D-to-3D spatial mapping using scale heuristics to
+                            reconstruct approximate scene geometry from a single RGB camera with no depth sensor.</li>
+                        <li>Visualized reconstructed Gaussian-splatting-inspired scenes in a live React + Three.js dashboard with
+                            real-time WebSocket-streamed telemetry, backed by a FastAPI vision processing server.</li>
+                    </ul>
+                </div>
+
+                <!-- Project 2: Leukemia -->
+                <div class="mb-4">
                     <div class="flex justify-between items-baseline mb-1">
                         <h3 class="font-bold text-white">Leukemia Diagnosis System</h3>
                         <a href="https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs"
@@ -267,53 +316,12 @@
                             class="text-xs text-accent border border-accent/30 px-2 py-0.5 rounded hover:bg-accent/10">GitHub</a>
                     </div>
                     <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
-                        <li>Developed an end-to-end deep learning pipeline for leukemia detection using EfficientNetV2
-                            trained on 3,256 labeled medical images.</li>
-                        <li>Applied transfer learning techniques to improve model convergence and generalization on
-                            limited medical datasets.</li>
-                        <li>Achieved 98.93 percent classification accuracy and evaluated model performance using
-                            precision, recall, and confusion matrices.</li>
-                        <li>Implemented Grad-CAM visualizations to provide explainable predictions and improve clinical
-                            interpretability.</li>
-                    </ul>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="mb-3">
-                    <div class="flex justify-between items-baseline mb-1">
-                        <h3 class="font-bold text-white">Himalayan Expedition Success Prediction</h3>
-                        <a href="https://github.com/divyanshupatel17/himalayan-expedition-success-prediction"
-                            target="_blank"
-                            class="text-xs text-accent border border-accent/30 px-2 py-0.5 rounded hover:bg-accent/10">GitHub</a>
-                    </div>
-                    <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
-                        <li>Built machine learning pipelines on over 89,000 historical expedition records to predict
-                            climb success outcomes.</li>
-                        <li>Performed data cleaning, feature engineering, and exploratory data analysis to identify key
-                            success factors.</li>
-                        <li>Trained and evaluated ensemble models including random forest and gradient-based approaches.
-                        </li>
-                        <li>Deployed an interactive Streamlit dashboard for real-time prediction and result
-                            visualization.</li>
-                    </ul>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="mb-3">
-                    <div class="flex justify-between items-baseline mb-1">
-                        <h3 class="font-bold text-white">CVLA – Complex Visualizer and Linear Algebra Platform</h3>
-                        <a href="https://cvla-project.streamlit.app" target="_blank"
-                            class="text-xs text-accent border border-accent/30 px-2 py-0.5 rounded hover:bg-accent/10">Live</a>
-                    </div>
-                    <ul class="list-disc pl-4 space-y-1 text-sm text-gray-300">
-                        <li>Designed an interactive platform for visualizing complex-valued functions and linear algebra
-                            transformations in real time.</li>
-                        <li>Implemented dynamic plots for complex planes, vector spaces, eigenvectors, and matrix
-                            transformations.</li>
-                        <li>Used NumPy, SciPy, and Plotly to ensure accurate numerical computation and smooth visual
-                            rendering.</li>
-                        <li>Improved conceptual understanding of abstract mathematics through intuitive visual
-                            representations.</li>
+                        <li>Developed an end-to-end deep learning pipeline for multi-class leukemia cell classification using
+                            EfficientNetV2 trained on 3,256 labeled blood-cell images, achieving 98.93% accuracy.</li>
+                        <li>Applied transfer learning with fine-tuning and data augmentation to overcome limited medical dataset
+                            constraints and improve cross-class generalization across distinct cell morphologies.</li>
+                        <li>Implemented Grad-CAM heatmaps for clinically interpretable predictions and evaluated model robustness
+                            with precision, recall, F1-score, and per-class confusion matrices.</li>
                     </ul>
                 </div>
             </div>
@@ -323,21 +331,19 @@
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="text-sm text-gray-300 space-y-1">
                     <p><strong class="text-white">Languages:</strong> C++, Java, Python, JavaScript, Dart</p>
-                    <p><strong class="text-white">Frameworks:</strong> Flutter, React, TensorFlow, scikit-learn,
-                        Streamlit</p>
-                    <p><strong class="text-white">Cloud and Backend:</strong> Firebase, Supabase, Google Cloud Storage,
-                        REST APIs, SQL, SQLite</p>
-                    <p><strong class="text-white">Core Areas:</strong> Mobile Development, Full-Stack Systems, Machine
-                        Learning, Deep Learning, Explainable AI, Data Structures, System Design</p>
+                    <p><strong class="text-white">Frameworks:</strong> Flutter, React, TensorFlow, PyTorch, scikit-learn, Streamlit</p>
+                    <p><strong class="text-white">Cloud &amp; Backend:</strong> Firebase, Supabase, Google Cloud Storage, REST APIs, SQL, SQLite</p>
+                    <p><strong class="text-white">Core Areas:</strong> Mobile Development, Graph Neural Networks, Deep Learning, Explainable AI, System Design, Full-Stack Systems</p>
                 </div>
             </div>
 
             <!-- Activities -->
             <div class="mb-6">
-                <h2 class="section-title">Activities</h2>
+                <h2 class="section-title">Activities &amp; Achievements</h2>
                 <p class="text-sm text-gray-300">
-                    Built and shipped rapid prototypes and minimum viable products across 20+ hackathons, gaining
-                    experience in rapid iteration, problem solving, and collaborative development under tight deadlines.
+                    Competed in 20+ hackathons, building and shipping rapid prototypes across domains including AI, mobile, and
+                    systems engineering. Gained hands-on experience in fast iteration, cross-functional collaboration, and
+                    delivering MVPs under tight deadlines.
                 </p>
             </div>
 
