@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <h4>Developer working at the intersection of AI/ML, mobile app development, and full-stack engineering.<br>3rd Year B.Tech Student at VIT Chennai.</h4>
+  <h4>Developer working at the intersection of AI/ML, mobile app development, and full-stack engineering.<br>4th Year B.Tech Student at VIT Chennai.</h4>
 </div>
 
 <br>
