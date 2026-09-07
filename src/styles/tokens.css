@@ -1,0 +1,169 @@
+/*
+  Design tokens.
+
+  Every size below is expressed in `em` so the whole layout scales from a single
+  root value on `body` (see base.css). That is what keeps proportions identical
+  across viewport widths instead of needing a breakpoint per element.
+*/
+
+:root {
+  /* Base palette */
+  --white: #ffffff;
+  --black: #1c1b1f;
+  --charcoal: #222222;
+  --off-white: #f9f6f0;
+  --sand: #eae7e1;
+  --yellow: #ffd64e;
+  --mint: #bfecc7;
+  --pink: #f9daf3;
+  --violet: #bbcbf4;
+
+  --gray-50: #f8f8f8;
+  --gray-100: #f0f0f0;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #afafaf;
+  --gray-500: #8f8f8f;
+  --gray-600: #676767;
+  --gray-700: #545454;
+  --gray-800: #363636;
+  --gray-900: #222222;
+  --gray-1000: #1a1a1a;
+
+  /* Fonts */
+  --font-headings: 'Outfit', 'Century Gothic', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  /* Size scale */
+  --size-2: 0.125em;
+  --size-4: 0.25em;
+  --size-8: 0.5em;
+  --size-10: 0.625em;
+  --size-12: 0.75em;
+  --size-14: 0.875em;
+  --size-16: 1em;
+  --size-18: 1.125em;
+  --size-20: 1.25em;
+  --size-24: 1.5em;
+  --size-28: 1.75em;
+  --size-32: 2em;
+  --size-36: 2.25em;
+  --size-40: 2.5em;
+  --size-48: 3em;
+  --size-56: 3.5em;
+  --size-64: 4em;
+  --size-80: 5em;
+  --size-88: 5.5em;
+  --size-100: 6.25em;
+  --size-160: 10em;
+
+  /* Type scale */
+  --h1-size: var(--size-88);
+  --h1-leading: 1.2;
+  --h2-size: var(--size-64);
+  --h2-leading: 1.2;
+  --h3-size: var(--size-56);
+  --h3-leading: 1.2;
+  --h4-size: var(--size-48);
+  --h4-leading: 1.2;
+  --h5-size: var(--size-40);
+  --h5-leading: 1.4;
+  --h6-size: var(--size-32);
+  --h6-leading: 1.4;
+
+  --text-xsmall: var(--size-12);
+  --text-small: var(--size-14);
+  --text-regular: var(--size-16);
+  --text-medium: var(--size-18);
+  --text-large: var(--size-20);
+  --text-xlarge: var(--size-24);
+
+  --leading-xsmall: 1.6;
+  --leading-small: 1.6;
+  --leading-regular: 1.4;
+  --leading-medium: 1.3;
+  --leading-large: 1.3;
+  --leading-xlarge: 1.2;
+
+  /* Layout */
+  --global-padding: var(--size-64);
+  --container-small: 56.25em;
+  --container-medium: 80em;
+  --container-large: 90em;
+
+  --spacer-xsmall: var(--size-40);
+  --spacer-small: var(--size-64);
+  --spacer-medium: var(--size-80);
+  --spacer-large: var(--size-100);
+  --spacer-xlarge: var(--size-160);
+
+  --radius-xsmall: var(--size-8);
+  --radius-small: var(--size-12);
+  --radius-medium: var(--size-16);
+  --radius-large: var(--size-24);
+  --radius-xlarge: var(--size-32);
+
+  /* Motion */
+  --ease-out-quint: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Theme, light surface. Sections override these to flip to a dark surface. */
+  --bg-main: var(--off-white);
+  --bg-secondary: var(--white);
+  --bg-tertiary: var(--yellow);
+  --text-primary: var(--black);
+  --text-secondary: var(--charcoal);
+  --text-alternate: var(--white);
+  --border-main: var(--sand);
+}
+
+/* Dark surface, applied per section rather than globally. */
+.theme-dark {
+  --bg-main: var(--black);
+  --bg-secondary: var(--gray-1000);
+  --text-primary: var(--white);
+  --text-secondary: var(--white);
+  --text-alternate: var(--gray-400);
+  --border-main: var(--gray-800);
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --h1-size: var(--size-80);
+    --h2-size: var(--size-48);
+    --h3-size: var(--size-48);
+    --h4-size: var(--size-40);
+    --h5-size: var(--size-36);
+    --h6-size: var(--size-28);
+    --global-padding: var(--size-32);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --h1-size: var(--size-56);
+    --h2-size: var(--size-48);
+    --h3-size: var(--size-36);
+    --h4-size: var(--size-32);
+    --h5-size: var(--size-24);
+    --h6-size: var(--size-24);
+    --h5-leading: 1.2;
+    --h6-leading: 1.2;
+    --text-xlarge: var(--size-18);
+    --text-large: var(--size-18);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --global-padding: var(--size-24);
+    --spacer-xsmall: var(--size-24);
+    --spacer-small: var(--size-32);
+    --spacer-medium: var(--size-40);
+    --spacer-large: var(--size-64);
+    --spacer-xlarge: var(--size-88);
+    --radius-small: var(--size-10);
+    --radius-medium: 0.875em;
+    --radius-large: var(--size-16);
+    --radius-xlarge: var(--size-24);
+  }
+}
