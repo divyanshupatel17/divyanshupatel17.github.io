@@ -5,7 +5,6 @@ import { SectionAbout } from './components/section-about'
 import { SectionProjects } from './components/section-projects'
 import { SectionMilestones } from './components/section-milestones'
 import { SectionContact } from './components/section-contact'
-import { SiteFooter } from './components/site-footer'
 
 export default function App() {
   return (
@@ -18,7 +17,6 @@ export default function App() {
         <SectionMilestones />
         <SectionContact />
       </main>
-      <SiteFooter />
     </ClickSpark>
   )
 }

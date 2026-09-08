@@ -36,7 +36,9 @@
     0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,
     0px 4px 16px rgba(0, 0, 0, 0.25),
     0px 8px 24px rgba(0, 0, 0, 0.2),
-    0px 16px 56px rgba(0, 0, 0, 0.2);
+    0px 16px 56px rgba(0, 0, 0, 0.2),
+    0px 4px 16px rgba(0, 0, 0, 0.15) inset,
+    0px 8px 24px rgba(0, 0, 0, 0.1) inset;
 }
 
 .glass-surface--fallback {

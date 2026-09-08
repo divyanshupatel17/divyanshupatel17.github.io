@@ -24,6 +24,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --ink: oklch(0.14 0.004 285);
   --ink-soft: oklch(0.2 0.005 285);
   --paper: oklch(0.972 0.006 90);
