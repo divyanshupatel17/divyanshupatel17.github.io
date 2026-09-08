@@ -4,66 +4,76 @@ Static portfolio site — React + Vite build, deployed as static output to GitHu
 
 ## Structure
 
-- `src/components/layout/` — `Nav`, the fixed frame and top bar.
-- `src/components/sections/` — one file per page section: `Home`, `About`, `Work`,
-  `Achievements`, `Contact`. `Contact` also renders the footer, because the CTA and footer are
-  one continuous dark block in the design.
-- `src/components/ui/` — `Button`, `SplitWords`, inline SVG icons.
-- `src/hooks/useReveal.ts` — one IntersectionObserver per section, adds `is-visible` to
-  descendant `.reveal` elements.
-- `src/data/content.ts` — every user facing string, so a copy pass touches one file. All values
-  are placeholders until real content is written.
-- `src/styles/` — `tokens.css` (variables), `base.css` (reset and type primitives),
-  `components.css` (everything else), pulled together by `index.css`.
-- `public/` — static assets copied verbatim into `dist/`, including `CNAME`.
-- `index.html` — Vite entry point, loads Inter and Outfit from Google Fonts.
+- `src/components/layout/` — `SiteNav`, the floating pill nav with theme toggle.
+- `src/components/hero/` — the hero canvas: `Hero`, `PixelTiles`, `Stamp`, and
+  `dappledLight.ts` (the WebGL shader).
+- `src/components/sections/` — `Work`, `Beyond`, `About`, `SiteFooter`, `GrassScene`.
+- `src/components/effects/` — `CustomCursor` and `LeafFall`.
+- `src/components/ui/` — inline SVG icons and the monogram.
+- `src/hooks/` — `useTheme` (day/night, persisted) and `useReveal` (scroll entrances).
+- `src/data/profile.ts` — every user facing string, so a copy pass touches one file.
+- `src/styles/` — `tokens.css`, `base.css`, `hero.css`, `sections.css`, joined by `index.css`.
+- `public/` — copied verbatim into `dist/`: `CNAME`, `portrait.jpg`, `resume.pdf`, `favicon.svg`.
 
-No CSS framework. The design is a hand written token system; Tailwind was removed when the
-current design landed.
+No CSS framework and no animation library. Everything below is hand written.
 
 ## Page structure
 
-Five sections in fixed order, matching the nav: Home (dark hero), About (heading plus four step
-cards), Work (four pinned feature panels), Achievements (two sliding stat bars), Contact (dark
-CTA plus footer).
+One page, four blocks: the hero, `#work` (project wall), `#beyond` (sticky note and
+figures), `#about`, and the footer at `#contact`.
 
 ## Design system
 
-Reference design: the layout, spacing, colour and motion language were rebuilt from
-`../ref1` (a saved copy of `clarvos.com`) with portfolio branding and placeholder copy. The
-markup and CSS here are original; nothing is copied from that export.
+Reference design: the layout, palette, type scale and motion language were rebuilt from
+`../ref2` and the live `adityaaa.com`. The markup, CSS and shaders here are original;
+nothing is copied from that site.
 
-Two mechanisms carry most of the layout:
+Colour is entirely token driven (`tokens.css`), and the night theme is a single
+`body.night-mode` class that redefines the same variables, so there is no parallel
+stylesheet. `index.html` sets the theme before first paint to avoid a flash.
 
-- **Fluid root size.** `body { font-size: 0.9svw }` and every size token in `em`, so the whole
-  page scales with the viewport instead of needing a breakpoint per element. Below 991px the root
-  locks to `1rem` and the token overrides in `tokens.css` take over.
-- **The page frame.** `.nav-frame` is a fixed, non interactive `1em` border in the page
-  background colour. Full bleed dark sections therefore read as inset with rounded corners
-  without each one carrying a margin. `.nav-corner` uses a radial gradient to draw the concave
-  fillet where the top bar meets that frame.
+Substitutions from the reference, which uses licensed faces and its own artwork:
 
-Substitutions from the reference: headings use Outfit (Google Fonts) in place of the reference's
-licensed PPFrama, and all product surface mockups are original placeholder components.
+- **Fraunces** stands in for the reference's display serif, **Caveat** for its handwriting
+  face. **Bricolage Grotesque** is the same sans, and is freely available.
+- Every illustration is generated rather than shipped: the stamp perforation is a CSS mask,
+  the monogram and icons are inline SVG, and the dappled light, falling leaves and meadow
+  are drawn at runtime.
+
+## The hero canvas
+
+The hero is authored against a fixed 1440x776 design space with hand placed coordinates,
+then scaled with a transform (`--hero-scale`, 0.9 to match the reference's own zoom) rather
+than reflowed, so the grid, tiles, stickers and stamp keep their exact relation to the type.
+Below 900px it abandons the canvas for ordinary stacked flow.
 
 ## Animation
 
-No animation library. Three mechanisms:
+- **Dappled light** (`dappledLight.ts`) — raw WebGL on a single full screen triangle. The
+  canopy is procedural: domain warped fBm carved into leaf clumps, blurred over a few taps,
+  swayed and twisted about an anchor, with grain and edge feathering. Night mode adds a
+  backlit moon (diffuse glow plus a ray cone) occluded by the leaves. Uniform branching is
+  avoided in favour of `step`/`mix`, because some mobile drivers miscompile it.
+- **Falling leaves** and the **meadow** are 2D canvas, both parked when off screen or when
+  the tab is hidden.
+- **Custom cursor** eases towards the pointer and reads its label from `data-cursor`. It
+  only mounts for `(hover: hover) and (pointer: fine)`.
+- **Entrances** — hero lines wipe up on load; everything else fades in through `useReveal`.
+- **Pixel tiles** burst into shards when poked, then fade back in.
 
-- Hero heading words rise into place on load (`SplitWords` plus a CSS keyframe, staggered through
-  a `--word-delay` custom property).
-- `.reveal` elements fade and slide in on scroll, driven by `useReveal`. `from-left` and
-  `from-right` variants drive the Achievements bars.
-- The Work panels stack with `position: sticky`, so each pins under the nav while the next slides
-  over it.
-
-All of it collapses to static under `prefers-reduced-motion: reduce`.
+Everything collapses to static under `prefers-reduced-motion: reduce`.
 
 ## Data flow
 
-No backend. All content is compiled into the bundle at build time from `src/data/content.ts`.
+No backend. All content compiles into the bundle from `src/data/profile.ts`.
 
 ## Hosting
 
-GitHub Pages serves the built `dist/` output from this repo. `CNAME` (in `public/`) points the
-custom domain `divyanshupatel.com` at the Pages deployment.
+GitHub Pages serves the built `dist/` output. `CNAME` (in `public/`) points the custom
+domain `divyanshupatel.com` at the Pages deployment.
+
+## Branches
+
+- `main` — the current design.
+- `yellow` — the previous design pass (Clarvos derived, five sections, yellow and black),
+  kept intact for reference.

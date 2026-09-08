@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react'
 
 /*
   Adds `is-visible` to every `.reveal` inside the returned ref once it scrolls
-  into view, which is what drives the fade and slide entrances. One observer per
-  section keeps the work off the scroll handler.
+  into view. One observer per section keeps the work off the scroll handler.
 */
 export default function useReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null)
@@ -28,7 +27,7 @@ export default function useReveal<T extends HTMLElement>() {
           observer.unobserve(entry.target)
         })
       },
-      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
     )
 
     targets.forEach((el) => observer.observe(el))

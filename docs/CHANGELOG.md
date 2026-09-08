@@ -6,16 +6,19 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 
 ### Added
 - Repo scaffolding from TEMPLATE (AGENTS.md, docs, license).
-- New design system rebuilt from the `../ref1` reference: token stylesheet, fluid
-  root sizing, the fixed page frame with concave nav fillets, and the five
-  sections (Home, About, Work, Achievements, Contact) with placeholder copy in
-  `src/data/content.ts`.
-- Load and scroll animations without a library: word by word hero entrance,
-  IntersectionObserver reveals, and sticky stacking for the Work panels.
+- New design rebuilt from the `../ref2` reference: warm dotted paper, a hand
+  placed hero canvas, a floating pill nav, and a day/night theme driven by one
+  class over the token set.
+- Real content throughout, from `src/data/profile.ts`: ISRO graph neural network
+  research, VIT Verse, the digital twin and leukemia projects, education and
+  skills. Portrait and resume added to `public/`.
+- Animation written from scratch, no library: a procedural WebGL dappled light
+  canopy with a night time moon, canvas falling leaves, a canvas meadow with a
+  rover, a trailing custom cursor, burstable hero tiles, and scroll reveals.
 
 ### Removed
-- The previous design pass in full: the 3D moon and its Three.js dependencies,
-  the runtime `profile.json` fetch, the section placeholders, and Tailwind.
+- The previous design pass (now on the `yellow` branch): the five section
+  Clarvos derived layout and everything under `src/`.
 
 ## [0.1.0] - 2026-09-07
 

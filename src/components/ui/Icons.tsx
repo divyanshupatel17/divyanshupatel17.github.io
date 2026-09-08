@@ -1,104 +1,61 @@
-type IconProps = {
-  className?: string
-}
-
-export function BulbIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M9 18h6" />
-      <path d="M10 21h4" />
-      <path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z" />
-    </svg>
-  )
-}
-
-export function PaletteIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 3a9 9 0 1 0 0 18c1 0 1.6-.7 1.6-1.5 0-.4-.2-.8-.4-1-.3-.3-.4-.6-.4-1 0-.8.6-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8Z" />
-      <circle cx="7.5" cy="12" r="1.1" fill="currentColor" stroke="none" />
-      <circle cx="9.5" cy="8" r="1.1" fill="currentColor" stroke="none" />
-      <circle cx="14" cy="7.5" r="1.1" fill="currentColor" stroke="none" />
-      <circle cx="17" cy="10.5" r="1.1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
-
-export function DropperIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m19.5 3.5-1 1a2.1 2.1 0 0 0-3 0l-1.6 1.6-1-1-1.4 1.4 5.9 5.9 1.4-1.4-1-1 1.6-1.6a2.1 2.1 0 0 0 0-3l1-1a1 1 0 0 0-1.4-1.4Z" />
-      <path d="m13.4 9.2-7 7a2 2 0 0 0-.6 1.2L5.4 20l2.6-.4a2 2 0 0 0 1.2-.6l7-7" />
-    </svg>
-  )
-}
-
-export function RocketIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 3c3.3 2 5 5.4 5 9l-2.6 2.6H9.6L7 12c0-3.6 1.7-7 5-9Z" />
-      <circle cx="12" cy="10" r="1.6" />
-      <path d="M9.6 14.6 7.5 16.7c-.6.6-.9 1.4-.9 2.2v1.5l1.5-.1c.8 0 1.6-.4 2.2-.9l1.1-1.1" />
-      <path d="M14.4 14.6l2.1 2.1c.6.6.9 1.4.9 2.2v1.5l-1.5-.1c-.8 0-1.6-.4-2.2-.9L12.6 18" />
-    </svg>
-  )
-}
+type IconProps = { className?: string }
 
 export function SunIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M19.1 4.9l-1.5 1.5M6.4 17.6l-1.5 1.5" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" />
     </svg>
   )
 }
 
-export function ClockIcon({ className }: IconProps) {
+export function MoonIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3.5 2" />
-    </svg>
-  )
-}
-
-export function CornerArrowIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 4v8a2 2 0 0 0 2 2h8" />
-      <path d="m13 10 4 4-4 4" />
-    </svg>
-  )
-}
-
-export function ArrowRightIcon({ className }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 130 130" fill="none" aria-hidden="true">
-      <path
-        d="M83.68 26.55 76.06 34.17l25.1 25.1H12.88v10.74h88.28l-25.1 25.1 7.62 7.62 38.09-38.09-38.09-38.09Z"
-        fill="currentColor"
-      />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" />
     </svg>
   )
 }
 
 export function ArrowUpRightIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 130 130" fill="none" aria-hidden="true">
-      <path
-        d="M51.17 24.24v10.77h35.5L24.24 97.44l7.59 7.6 62.43-62.44v35.5h10.77V24.24H51.17Z"
-        fill="currentColor"
-      />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 17 17 7M8.5 7H17v8.5" />
     </svg>
   )
 }
 
-export function BrandMark({ className }: IconProps) {
+export function LinkedinIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M20 2a14 14 0 0 0 0 28" stroke="currentColor" strokeWidth="3" fill="none" />
-      <path d="M13 4a14 14 0 0 0 0 24" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.65" />
-      <path d="M6 7a14 14 0 0 0 0 18" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.35" />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.3 8.9h3.3V20H3.3V8.9Zm5.5 0h3.16v1.52h.05c.44-.83 1.52-1.7 3.12-1.7 3.34 0 3.96 2.2 3.96 5.05V20h-3.3v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V20H8.8V8.9Z" />
+    </svg>
+  )
+}
+
+export function GithubIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5.01 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
+    </svg>
+  )
+}
+
+export function InstagramIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+      <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function MailIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2.8" y="4.8" width="18.4" height="14.4" rx="3" />
+      <path d="m3.6 7 7.3 5.2a2 2 0 0 0 2.2 0L20.4 7" />
     </svg>
   )
 }

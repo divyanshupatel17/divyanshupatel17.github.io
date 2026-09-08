@@ -5,13 +5,35 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Divyanshu Patel</title>
-    <meta name="description" content="Divyanshu Patel — developer, problem solver, lifelong learner." />
+    <meta
+      name="description"
+      content="Divyanshu Patel, AI and ML engineer. Graph neural networks at URSC ISRO, a Flutter app with 4,000 users, and a lot of hackathons."
+    />
+    <meta name="theme-color" content="#fcfbf9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Caveat:wght@500;600&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Set the theme before first paint so the page never flashes the wrong one.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var night =
+            stored === 'night' ||
+            (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (night) document.documentElement.setAttribute('data-boot-theme', 'night')
+        } catch (e) {}
+      })()
+    </script>
+    <style>
+      html[data-boot-theme='night'],
+      html[data-boot-theme='night'] body {
+        background-color: #150f1e;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
