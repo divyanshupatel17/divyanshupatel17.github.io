@@ -1,8 +1,11 @@
 import { ArrowRight, Award, GitBranch, GraduationCap, Smartphone, Trophy } from 'lucide-react'
 import { useState } from 'react'
 
+import { BorderGlow } from './border-glow'
 import { Reveal } from './motion-primitives'
 import { cn } from '../lib/utils'
+
+const GLOW_COLORS = ['#ff6a52', '#d8101f', '#7a0710']
 
 const filters = ['All', 'Built', 'Achieved', 'Certified', 'Contributed'] as const
 type Filter = (typeof filters)[number]
@@ -56,26 +59,27 @@ export function SectionMilestones() {
   const visible = milestones.filter((m) => filter === 'All' || m.tag === filter)
 
   return (
-    <section id="achievements" className="relative overflow-hidden bg-paper text-ink">
+    <section
+      id="achievements"
+      className="section-screen relative flex flex-col justify-center overflow-hidden bg-paper pt-20 text-ink"
+    >
       <div aria-hidden className="grid-texture-light absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
+      <div className="relative mx-auto w-full max-w-[1400px] px-5 py-6 md:px-10">
         <Reveal className="label flex items-center gap-3 text-ink/50">
-          <span className="text-red">04</span>
-          <span className="h-px w-6 bg-ink/20" />
           <span>Things I&apos;ve Done</span>
         </Reveal>
 
-        <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-start">
+        <div className="mt-3 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-start">
           <div>
-            <h2 className="display text-[clamp(2.3rem,6.2vw,4.4rem)]">
+            <h2 className="display text-[clamp(2.1rem,5.2vw,3.8rem)]">
               <Reveal>Milestones</Reveal>
-              <Reveal delay={0.08}>
+              <Reveal delay={0.08} className="mt-1 md:mt-2">
                 &amp; <span className="text-red">More.</span>
               </Reveal>
             </h2>
             <Reveal delay={0.14}>
-              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-ink/70">
+              <p className="mt-3 max-w-lg font-mono text-sm leading-relaxed text-ink/70">
                 A timeline of projects, achievements, certifications and contributions that keep me
                 moving forward.
               </p>
@@ -100,28 +104,41 @@ export function SectionMilestones() {
           </Reveal>
         </div>
 
-        <div className="relative mt-14">
-          <div className="grid gap-5 md:grid-cols-3 xl:grid-cols-5">
+        <div className="relative mt-6">
+          <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
             {visible.map((m, i) => (
-              <Reveal key={m.title} delay={0.06 * i}>
-                <article className="group relative h-full border border-ink/15 bg-white/70 p-5 transition-colors hover:border-red">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="font-mono text-xs text-ink/50">{m.year}</span>
-                    <m.Icon className="h-5 w-5 shrink-0 text-ink/70 transition-colors group-hover:text-red" />
-                  </div>
-                  <h3 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide">
-                    {m.title}
-                  </h3>
-                  <p className="mt-2 font-mono text-[0.7rem] leading-relaxed text-ink/60">
-                    {m.body}
-                  </p>
-                  <span className="label mt-5 block text-red">{m.tag}</span>
-                </article>
+              <Reveal key={m.title} delay={0.06 * i} className="h-full">
+                <BorderGlow
+                  className="group h-full"
+                  backgroundColor="#f7f6f1"
+                  borderRadius={6}
+                  glowColor="355 86 46"
+                  glowRadius={22}
+                  glowIntensity={1.15}
+                  edgeSensitivity={35}
+                  coneSpread={28}
+                  colors={GLOW_COLORS}
+                  fillOpacity={0.32}
+                >
+                  <article className="flex h-full flex-col p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="font-mono text-xs text-ink/50">{m.year}</span>
+                      <m.Icon className="h-5 w-5 shrink-0 text-ink/70 transition-colors group-hover:text-red" />
+                    </div>
+                    <h3 className="mt-3 font-display text-base uppercase leading-tight tracking-wide">
+                      {m.title}
+                    </h3>
+                    <p className="mt-1.5 font-mono text-[0.68rem] leading-relaxed text-ink/60">
+                      {m.body}
+                    </p>
+                    <span className="label mt-3 block text-red">{m.tag}</span>
+                  </article>
+                </BorderGlow>
               </Reveal>
             ))}
           </div>
 
-          <div className="mt-10 hidden items-center gap-4 md:flex">
+          <div className="mt-6 hidden items-center gap-4 md:flex">
             <span className="h-2 w-2 shrink-0 rounded-full bg-ink" />
             <span className="h-px flex-1 bg-ink/25" />
             <span className="h-2 w-2 shrink-0 rounded-full bg-ink" />

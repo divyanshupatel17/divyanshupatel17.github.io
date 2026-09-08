@@ -5,42 +5,43 @@ import { Magnet, Reveal, RevealWords } from './motion-primitives'
 
 export function SectionHero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-ink pt-28 md:pt-24">
+    <section
+      id="home"
+      className="section-screen relative z-10 flex flex-col bg-ink pt-20"
+    >
       <div aria-hidden className="grid-texture absolute inset-0 opacity-60" />
 
-      <div className="relative mx-auto grid max-w-[1400px] items-end gap-10 px-5 pb-14 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:pb-0">
-        <div className="pb-4 lg:pb-20 lg:pt-14">
+      <div className="relative mx-auto grid w-full max-w-[1400px] flex-1 items-stretch gap-8 px-5 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+        <div className="flex flex-col justify-center py-6">
           <Reveal className="label flex items-center gap-3 text-muted-foreground">
-            <span className="text-red">01</span>
-            <span className="h-px w-6 bg-border" />
             <span>Hello There</span>
           </Reveal>
 
-          <h1 className="display mt-6 text-[clamp(3rem,11vw,7.5rem)]">
+          <h1 className="display mt-5 text-[clamp(2.9rem,10vw,7.2rem)] leading-[1.05]">
             <span className="block">
               <RevealWords text="I'm" />
             </span>
-            <span className="block text-red">
+            <span className="mt-1 block text-red md:mt-2">
               <RevealWords text="Divyanshu" />
             </span>
-            <span className="block">
+            <span className="mt-1 block md:mt-2">
               <RevealWords text="Patel" />
             </span>
           </h1>
 
-          <Reveal delay={0.15} className="label mt-6 text-paper">
+          <Reveal delay={0.15} className="label mt-5 text-paper">
             Developer <span className="text-red">·</span> Builder <span className="text-red">·</span>{' '}
             Problem Solver
           </Reveal>
 
           <Reveal delay={0.22}>
-            <p className="mt-5 max-w-md font-mono text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-md font-mono text-sm leading-relaxed text-muted-foreground">
               I build useful digital products that solve real problems and create meaningful
               experiences.
             </p>
           </Reveal>
 
-          <Reveal delay={0.3} className="mt-9 flex flex-wrap items-center gap-4">
+          <Reveal delay={0.3} className="mt-7 flex flex-wrap items-center gap-4">
             <Magnet strength={8}>
               <a
                 href="#projects"
@@ -62,7 +63,7 @@ export function SectionHero() {
             </Magnet>
           </Reveal>
 
-          <Reveal delay={0.38} className="mt-9 flex items-center gap-3">
+          <Reveal delay={0.38} className="mt-7 flex items-center gap-3">
             {socials.map(({ name, href, Icon }) => (
               <a
                 key={name}
@@ -78,23 +79,19 @@ export function SectionHero() {
           </Reveal>
         </div>
 
-        <div className="relative">
+        <div className="relative h-full min-h-[50dvh] overflow-hidden">
           <div
             aria-hidden
-            className="absolute bottom-0 left-1/2 h-[78%] w-[70%] -translate-x-1/2 bg-red"
-            style={{ clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0 100%)' }}
+            className="absolute bottom-0 left-1/2 h-[70%] w-[62%] -translate-x-1/2 rounded-[3rem] bg-red/70 blur-3xl"
+            style={{ opacity: 0.55 }}
           />
-          <div
-            aria-hidden
-            className="absolute -bottom-4 left-1/2 hidden h-[62%] w-[86%] -translate-x-1/2 border border-red/40 lg:block"
-          />
-          <Reveal y={40} delay={0.1} className="relative">
+          <Reveal y={40} delay={0.1} className="absolute inset-0">
             <img
-              src="/portrait.jpg"
+              src="/user-portrait.webp"
               alt="Divyanshu Patel"
-              width={1008}
+              width={1800}
               height={1200}
-              className="relative mx-auto max-h-[74vh] w-full object-cover object-top mix-blend-lighten"
+              className="h-full w-full object-contain object-bottom"
             />
           </Reveal>
 

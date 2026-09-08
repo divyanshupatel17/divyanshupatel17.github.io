@@ -4,6 +4,7 @@ import camera from '../assets/collage-camera.jpg'
 import city from '../assets/collage-city.jpg'
 import laptop from '../assets/collage-laptop.jpg'
 import mountain from '../assets/collage-mountain.jpg'
+import { BorderGlow } from './border-glow'
 import { CountUp, Reveal, TiltedCard } from './motion-primitives'
 
 const cards = [
@@ -12,6 +13,8 @@ const cards = [
   { Icon: Lightbulb, title: 'Exploring', body: 'AI, emerging technology & new ideas' },
   { Icon: Compass, title: 'Interests', body: 'Technology, design, photography, exploration' },
 ]
+
+const GLOW_COLORS = ['#ff6a52', '#d8101f', '#7a0710']
 
 const stats = [
   { value: 10, suffix: '+', label: 'Projects' },
@@ -56,52 +59,66 @@ function Polaroid({
 
 export function SectionAbout() {
   return (
-    <section id="about" className="relative overflow-hidden bg-paper text-ink">
+    <section
+      id="about"
+      className="section-screen relative flex flex-col justify-center overflow-hidden bg-paper pt-20 text-ink"
+    >
       <div aria-hidden className="grid-texture-light absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
-        <div className="grid gap-14 lg:grid-cols-[1fr_0.95fr] lg:gap-10">
+      <div className="relative mx-auto w-full max-w-[1400px] px-5 py-6 md:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:gap-10">
           <div>
             <Reveal className="label flex items-center gap-3 text-ink/50">
-              <span className="text-red">02</span>
-              <span className="h-px w-6 bg-ink/20" />
               <span>Beyond the Code</span>
             </Reveal>
 
-            <h2 className="display mt-6 text-[clamp(2.3rem,6.2vw,4.4rem)]">
+            <h2 className="display mt-4 text-[clamp(2.3rem,5.6vw,4.2rem)]">
               <Reveal>Curious mind.</Reveal>
-              <Reveal delay={0.08}>
+              <Reveal delay={0.08} className="mt-1 md:mt-2">
                 Creative <span className="text-red">builder.</span>
               </Reveal>
             </h2>
 
             <Reveal delay={0.14}>
-              <p className="mt-7 max-w-xl font-mono text-sm leading-relaxed text-ink/70">
+              <p className="mt-4 max-w-xl font-mono text-sm leading-relaxed text-ink/70">
                 I&apos;m Divyanshu Patel, a developer who enjoys turning ideas into useful digital
                 products. I like exploring new technologies, building things from scratch, and
                 continuously learning through real-world projects.
               </p>
             </Reveal>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {cards.map(({ Icon, title, body }, i) => (
-                <Reveal key={title} delay={0.06 * i}>
-                  <div className="group h-full border border-ink/15 bg-white/60 p-5 transition-colors hover:border-red">
-                    <Icon className="h-6 w-6 text-ink transition-colors group-hover:text-red" />
-                    <h3 className="mt-6 font-display text-lg uppercase tracking-wide">{title}</h3>
-                    <p className="mt-1 font-mono text-[0.7rem] leading-relaxed text-ink/60">
-                      {body}
-                    </p>
-                  </div>
+                <Reveal key={title} delay={0.06 * i} className="h-full">
+                  <BorderGlow
+                    className="group h-full"
+                    backgroundColor="#f7f6f1"
+                    borderRadius={6}
+                    glowColor="355 86 46"
+                    glowRadius={22}
+                    glowIntensity={1.15}
+                    edgeSensitivity={35}
+                    coneSpread={28}
+                    colors={GLOW_COLORS}
+                    fillOpacity={0.32}
+                  >
+                    <div className="h-full p-4">
+                      <Icon className="h-5 w-5 text-ink transition-colors group-hover:text-red" />
+                      <h3 className="mt-4 font-display text-base uppercase tracking-wide">{title}</h3>
+                      <p className="mt-1 font-mono text-[0.68rem] leading-relaxed text-ink/60">
+                        {body}
+                      </p>
+                    </div>
+                  </BorderGlow>
                 </Reveal>
               ))}
             </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {stats.map((s, i) => (
                 <Reveal key={s.label} delay={0.06 * i}>
                   <div>
-                    <p className="display text-4xl text-red md:text-5xl">
+                    <p className="display text-3xl text-red md:text-4xl">
                       {s.value === null ? s.suffix : <CountUp to={s.value} suffix={s.suffix} />}
                     </p>
                     <p className="label mt-2 text-ink/55">{s.label}</p>
@@ -112,8 +129,8 @@ export function SectionAbout() {
           </div>
 
           {/* Editorial collage */}
-          <Reveal y={40} className="relative min-h-[520px] lg:min-h-[640px]">
-            <div className="hand absolute -top-2 right-2 z-30 text-right text-2xl leading-tight text-ink">
+          <Reveal y={40} className="relative min-h-[360px] lg:min-h-[440px]">
+            <div className="hand absolute top-2 right-2 z-40 rounded-lg bg-paper/95 px-3 py-2 text-right text-2xl leading-tight text-ink shadow-[0_8px_20px_-10px_rgba(0,0,0,0.35)]">
               Build
               <br />
               Explore

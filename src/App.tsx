@@ -1,3 +1,4 @@
+import { ClickSpark } from './components/click-spark'
 import { SiteNav } from './components/site-nav'
 import { SectionHero } from './components/section-hero'
 import { SectionAbout } from './components/section-about'
@@ -8,7 +9,7 @@ import { SiteFooter } from './components/site-footer'
 
 export default function App() {
   return (
-    <>
+    <ClickSpark sparkColor="#e5322f" sparkSize={12} sparkRadius={26} sparkCount={9} duration={400}>
       <SiteNav />
       <main>
         <SectionHero />
@@ -18,6 +19,6 @@ export default function App() {
         <SectionContact />
       </main>
       <SiteFooter />
-    </>
+    </ClickSpark>
   )
 }

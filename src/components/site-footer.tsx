@@ -7,9 +7,11 @@ export function SiteFooter() {
     <footer className="bg-red text-primary-foreground">
       <div className="mx-auto grid max-w-[1400px] items-center gap-8 px-5 py-8 md:px-10 lg:grid-cols-3">
         <div className="flex min-w-0 items-center gap-4">
-          <span className="display shrink-0 text-3xl">
-            DP<span className="text-ink">.</span>
-          </span>
+          <img
+            src="/avatar.png"
+            alt=""
+            className="h-12 w-12 shrink-0 rounded-full border border-white/30 object-cover"
+          />
           <div className="min-w-0">
             <p className="truncate font-display text-sm uppercase tracking-widest">
               Divyanshu Patel
