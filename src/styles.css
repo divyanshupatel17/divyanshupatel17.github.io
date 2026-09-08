@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: neo-brutalist editorial portfolio.
+ * ink (near-black) / paper (off-white) / red (signature).
+ */
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-hand: "Caveat", cursive;
+  --font-sans: "Barlow", system-ui, sans-serif;
+}
+
+:root {
+  --ink: oklch(0.14 0.004 285);
+  --ink-soft: oklch(0.2 0.005 285);
+  --paper: oklch(0.972 0.006 90);
+  --paper-dim: oklch(0.93 0.006 90);
+  --red: oklch(0.56 0.222 26.5);
+  --red-deep: oklch(0.45 0.19 26.5);
+  --border: oklch(1 0 0 / 12%);
+  --muted-foreground: oklch(0.68 0.005 285);
+  --primary-foreground: oklch(0.98 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--red);
+    color: #fff;
+  }
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility hand {
+  font-family: var(--font-hand);
+  font-weight: 600;
+}
+
+@utility grid-texture {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility grid-texture-light {
+  background-image:
+    linear-gradient(to right, oklch(0 0 0 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0 0 0 / 5%) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility underline-scribble {
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 62%;
+    margin-top: 0.25rem;
+    background: var(--red);
+    transform: skewX(-18deg);
+  }
+}

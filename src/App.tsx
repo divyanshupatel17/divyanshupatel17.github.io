@@ -1,28 +1,23 @@
-import SiteNav from './components/layout/SiteNav'
-import Hero from './components/hero/Hero'
-import Work from './components/sections/Work'
-import Beyond from './components/sections/Beyond'
-import About from './components/sections/About'
-import SiteFooter from './components/sections/SiteFooter'
-import CustomCursor from './components/effects/CustomCursor'
-import LeafFall from './components/effects/LeafFall'
-import useTheme from './hooks/useTheme'
+import { SiteNav } from './components/site-nav'
+import { SectionHero } from './components/section-hero'
+import { SectionAbout } from './components/section-about'
+import { SectionProjects } from './components/section-projects'
+import { SectionMilestones } from './components/section-milestones'
+import { SectionContact } from './components/section-contact'
+import { SiteFooter } from './components/site-footer'
 
 export default function App() {
-  const { night, toggle } = useTheme()
-
   return (
     <>
-      <SiteNav night={night} onToggleTheme={toggle} />
-      <main className="site-main">
-        <Hero night={night} />
-        <Work />
-        <Beyond />
-        <About />
-        <SiteFooter />
+      <SiteNav />
+      <main>
+        <SectionHero />
+        <SectionAbout />
+        <SectionProjects />
+        <SectionMilestones />
+        <SectionContact />
       </main>
-      <LeafFall />
-      <CustomCursor />
+      <SiteFooter />
     </>
   )
 }
