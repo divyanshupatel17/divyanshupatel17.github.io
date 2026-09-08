@@ -1,23 +1,27 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
-import { useState } from 'react'
+import { useRef } from 'react'
 
-import { AsciiPortrait } from './ascii-portrait'
+import { PortraitSpotlight } from './portrait-spotlight'
 import { socials } from './icons'
 import { Magnet, Reveal, RevealWords } from './motion-primitives'
 
 export function SectionHero() {
-  const [hovered, setHovered] = useState(false)
+  const pointerRef = useRef({ x: -9999, y: -9999 })
 
   return (
     <section
       id="home"
-      onPointerEnter={() => setHovered(true)}
-      onPointerLeave={() => setHovered(false)}
+      onPointerMove={(e) => {
+        pointerRef.current = { x: e.clientX, y: e.clientY }
+      }}
+      onPointerLeave={() => {
+        pointerRef.current = { x: -9999, y: -9999 }
+      }}
       className="section-screen relative z-10 flex flex-col bg-ink pt-20"
     >
       <div aria-hidden className="grid-texture absolute inset-0 opacity-60" />
 
-      <div className="relative mx-auto grid w-full max-w-[1400px] flex-1 items-stretch gap-8 px-5 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+      <div className="relative mx-auto grid w-full max-w-[1400px] flex-1 items-stretch gap-8 px-5 md:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-4">
         <div className="flex flex-col justify-center py-6">
           <Reveal className="label flex items-center gap-3 text-muted-foreground">
             <span>Hello There</span>
@@ -86,15 +90,10 @@ export function SectionHero() {
         </div>
 
         <div className="relative h-full min-h-[50dvh] overflow-hidden">
-          <div
-            aria-hidden
-            className="absolute bottom-0 left-1/2 h-[70%] w-[62%] -translate-x-1/2 rounded-[3rem] bg-red/70 blur-3xl"
-            style={{ opacity: 0.55 }}
-          />
           <Reveal y={40} delay={0.1} className="absolute inset-0">
-            <AsciiPortrait
+            <PortraitSpotlight
               src="/user-portrait.webp"
-              hovered={hovered}
+              pointerRef={pointerRef}
               alt="Divyanshu Patel"
               className="h-full w-full"
             />
