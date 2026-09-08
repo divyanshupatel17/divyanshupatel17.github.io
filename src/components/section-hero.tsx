@@ -1,12 +1,18 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
+import { useState } from 'react'
 
+import { AsciiPortrait } from './ascii-portrait'
 import { socials } from './icons'
 import { Magnet, Reveal, RevealWords } from './motion-primitives'
 
 export function SectionHero() {
+  const [hovered, setHovered] = useState(false)
+
   return (
     <section
       id="home"
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
       className="section-screen relative z-10 flex flex-col bg-ink pt-20"
     >
       <div aria-hidden className="grid-texture absolute inset-0 opacity-60" />
@@ -86,12 +92,11 @@ export function SectionHero() {
             style={{ opacity: 0.55 }}
           />
           <Reveal y={40} delay={0.1} className="absolute inset-0">
-            <img
+            <AsciiPortrait
               src="/user-portrait.webp"
+              hovered={hovered}
               alt="Divyanshu Patel"
-              width={1800}
-              height={1200}
-              className="h-full w-full object-contain object-bottom"
+              className="h-full w-full"
             />
           </Reveal>
 
