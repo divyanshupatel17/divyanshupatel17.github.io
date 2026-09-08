@@ -2,11 +2,12 @@ import { ArrowDown, ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
 
 import { PortraitSpotlight } from './portrait-spotlight'
-import { socials } from './icons'
+import { useSocials } from './icons'
 import { Magnet, Reveal, RevealWords } from './motion-primitives'
 
 export function SectionHero() {
   const pointerRef = useRef({ x: -9999, y: -9999 })
+  const socials = useSocials()
 
   return (
     <section

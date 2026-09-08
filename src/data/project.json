@@ -1,0 +1,499 @@
+{
+  "portfolio": {
+    "owner": "Divyanshu Patel",
+    "lastUpdated": "2026",
+    "totalProjects": 12,
+    "projects": {
+      "products": [
+        {
+          "id": "findr",
+          "name": "Findr",
+          "title": "Findr - Social Discovery Platform",
+          "category": "Products",
+          "status": "Active",
+          "shortDesc": "A modern social discovery platform that helps users find meaningful connections and explore social activities.",
+          "longDesc": "Findr is an innovative social discovery platform with an intuitive interface designed to help users discover compatible profiles and coordinate social activities. The platform emphasizes genuine connections and seamless user experience.",
+          "techStack": [
+            "Kotlin",
+            "Android",
+            "Firebase",
+            "Firestore",
+            "Material Design 3"
+          ],
+          "links": {
+            "website": "https://findr.date/",
+            "playStore": "https://play.google.com/store/apps/details?id=com.divyanshupatel.findr",
+            "github": null,
+            "paper": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": null,
+            "downloads": null,
+            "rating": null
+          },
+          "competition": null,
+          "featured": true,
+          "tags": [
+            "social",
+            "discovery",
+            "android",
+            "mobile"
+          ]
+        },
+        {
+          "id": "toolhub",
+          "name": "ToolHub",
+          "title": "ToolHub - Developer Tools & Utilities Collection",
+          "category": "Products",
+          "status": "Active",
+          "shortDesc": "An open-source collection of developer-friendly tools and utilities designed to streamline common development tasks.",
+          "longDesc": "ToolHub is a comprehensive collection of open-source developer tools and utilities built with a clean, accessible interface. Perfect for developers looking for quick, reliable, and reusable tools to accelerate their workflow.",
+          "techStack": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Vercel",
+            "TypeScript"
+          ],
+          "links": {
+            "website": "https://toolhub.divyanshupatel.com/",
+            "github": "https://github.com/divyanshupatel17/tools",
+            "playStore": null,
+            "paper": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": null,
+            "downloads": null,
+            "stars": null
+          },
+          "competition": null,
+          "featured": true,
+          "tags": [
+            "developer-tools",
+            "open-source",
+            "web",
+            "utilities"
+          ]
+        },
+        {
+          "id": "testloop",
+          "name": "TestLoop",
+          "title": "TestLoop - Closed Testing Platform",
+          "category": "Products",
+          "status": "Active",
+          "shortDesc": "A comprehensive platform for managing closed beta testing and QA cycles with real-time feedback collection.",
+          "longDesc": "TestLoop enables seamless collaboration between developers and testers with an intuitive interface for bug tracking, feedback collection, and test cycle management. Designed to accelerate QA workflows and improve product quality.",
+          "techStack": [
+            "Flutter",
+            "React",
+            "Firebase",
+            "Cloud Functions",
+            "Firestore"
+          ],
+          "links": {
+            "website": "https://testloop.divyanshupatel.com/",
+            "playStore": "https://play.google.com/store/apps/details?id=com.divyanshupatel.testloop",
+            "github": null,
+            "paper": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": null,
+            "downloads": null,
+            "rating": null
+          },
+          "competition": null,
+          "featured": true,
+          "tags": [
+            "testing",
+            "qa",
+            "beta",
+            "mobile",
+            "web"
+          ]
+        },
+        {
+          "id": "dotxwidgets",
+          "name": "DotX Widgets Pro",
+          "title": "DotX Widgets Pro - Customizable Widget Library",
+          "category": "Products",
+          "status": "Active",
+          "shortDesc": "A premium widget collection offering beautiful, customizable components for Android applications.",
+          "longDesc": "DotX Widgets Pro provides developers with production-ready, customizable widget components following Material Design 3 standards. Designed to accelerate Android UI development with high-quality, reusable components.",
+          "techStack": [
+            "Kotlin",
+            "Java",
+            "Android",
+            "Material Design 3",
+            "Gradle"
+          ],
+          "links": {
+            "website": "https://dotxwidgets.divyanshupatel.com/",
+            "playStore": "https://play.google.com/store/apps/details?id=com.divyanshupatel.dotxwidgets",
+            "github": null,
+            "paper": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": null,
+            "downloads": null,
+            "rating": null
+          },
+          "competition": null,
+          "featured": false,
+          "tags": [
+            "android",
+            "widgets",
+            "ui-components",
+            "library"
+          ]
+        }
+      ],
+      "research_engineering": [
+        {
+          "id": "digital_twin",
+          "name": "Self-Healing Digital Twin",
+          "title": "Self-Healing Digital Twin - Monocular 3D Perception for Autonomous Vehicles",
+          "category": "Research & Engineering",
+          "status": "Active",
+          "shortDesc": "Cutting-edge research on autonomous vehicle perception systems using monocular 3D object detection with adaptive error correction.",
+          "longDesc": "A comprehensive research project implementing monocular 3D perception systems for autonomous vehicles. Features self-healing mechanisms for error correction and robust localization in dynamic environments.",
+          "techStack": [
+            "PyTorch",
+            "TensorFlow",
+            "OpenCV",
+            "YOLOv3",
+            "Open3D",
+            "Python",
+            "CUDA"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/digital_twin_project/blob/main/docs/Digital-Twin-Final.pdf",
+            "github": "https://github.com/divyanshupatel17/digital_twin_project",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "conference": null
+          },
+          "competition": null,
+          "featured": true,
+          "tags": [
+            "computer-vision",
+            "autonomous-vehicles",
+            "deep-learning",
+            "3d-perception"
+          ]
+        },
+        {
+          "id": "satroute",
+          "name": "SatRoute",
+          "title": "SatRoute - GraphSAGE-Based Approximation of Oracle Contact-Graph Routing",
+          "category": "Research & Engineering",
+          "status": "Active",
+          "shortDesc": "Advanced satellite network routing optimization using Graph Neural Networks in collaboration with ISRO.",
+          "longDesc": "Implements GraphSAGE-based routing algorithms for inter-satellite communication networks. Developed in collaboration with ISRO to optimize communication efficiency in satellite constellations.",
+          "techStack": [
+            "PyTorch Geometric",
+            "GraphSAGE",
+            "NetworkX",
+            "OSMNX",
+            "NumPy",
+            "Pandas",
+            "Python"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/satroute/blob/main/docs/SatRoute_Technical_Note_Complete.pdf",
+            "github": "https://github.com/divyanshupatel17/satroute",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "conference": "ISRO"
+          },
+          "competition": null,
+          "featured": true,
+          "tags": [
+            "graph-neural-networks",
+            "satellite-networks",
+            "routing-optimization",
+            "isro"
+          ]
+        },
+        {
+          "id": "aadhaar_exclusion",
+          "name": "Aadhaar Exclusion Mapping",
+          "title": "Aadhaar Exclusion Mapping - Data-Driven Mobile Enrollment Strategy",
+          "category": "Research & Engineering",
+          "status": "Active",
+          "shortDesc": "Geospatial analysis of Aadhaar exclusion zones with data-driven mobile enrollment strategies for underserved communities.",
+          "longDesc": "A comprehensive data analytics project analyzing Aadhaar digital identity exclusion zones and proposing targeted mobile enrollment strategies. Leverages geospatial analysis and demographic data to bridge the digital divide.",
+          "techStack": [
+            "GeoPandas",
+            "Folium",
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Plotly",
+            "PostGIS",
+            "Google Maps API"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/aadhaar-exclusion-mapping/blob/main/Divyanshu_Patel_Aadhaar_Exclusion_UIDAI_Data_Hackathon_2026_with_codefiles.pdf",
+            "github": "https://github.com/divyanshupatel17/aadhaar-exclusion-mapping",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "conference": null
+          },
+          "competition": "UIDAI Data Hackathon 2026",
+          "featured": true,
+          "tags": [
+            "geospatial-analysis",
+            "data-analytics",
+            "uidai",
+            "hackathon",
+            "digital-identity"
+          ]
+        },
+        {
+          "id": "leukemia_classification",
+          "name": "Leukemia Cell Classification with EfficientNetV2",
+          "title": "Leukemia Cell Classification - Enhanced EfficientNetV2 vs Traditional CNNs",
+          "category": "Research & Engineering",
+          "status": "Active",
+          "shortDesc": "Medical AI research comparing EfficientNetV2 with traditional CNN architectures for automated leukemia cell classification.",
+          "longDesc": "Comprehensive research project focused on medical image analysis for leukemia cell classification. Compares state-of-the-art EfficientNetV2 with traditional CNN architectures to improve diagnostic accuracy and computational efficiency.",
+          "techStack": [
+            "TensorFlow",
+            "Keras",
+            "EfficientNetV2",
+            "ResNet",
+            "VGG",
+            "OpenCV",
+            "Scikit-image",
+            "NumPy",
+            "Pandas",
+            "Scikit-learn"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs/blob/main/docs/assets/Enhanced_EfficientNetV2S_MultiClass_Leukemia_Comparison_DIVYANSHU_PATEL.pdf",
+            "github": "https://github.com/divyanshupatel17/Leukemia-Diagnosis-EfficientNetV2-vs-CNNs",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "accuracy": null
+          },
+          "competition": null,
+          "featured": false,
+          "tags": [
+            "medical-ai",
+            "deep-learning",
+            "computer-vision",
+            "healthcare",
+            "classification"
+          ]
+        }
+      ],
+      "research_concepts": [
+        {
+          "id": "consumption_economy",
+          "name": "India's Consumption Economy 2030",
+          "title": "India's Consumption Economy 2030 - Home and Household Consumption Analysis",
+          "category": "Research & Concepts",
+          "status": "Active",
+          "shortDesc": "Comprehensive research analyzing India's household consumption trends projected to 2030. Selected among top 7 papers for final presentation.",
+          "longDesc": "In-depth research paper analyzing India's home and household consumption patterns with projections through 2030. Selected among the top 7 research papers for final on-campus presentation at a national-level competition.",
+          "techStack": [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Tableau",
+            "Matplotlib",
+            "Seaborn",
+            "SciPy",
+            "Statsmodels",
+            "Prophet",
+            "ARIMA",
+            "LaTeX"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/India-Consumption-Economy-2030-Research-Synthesis/blob/main/docs/Divyanshu_Patel_Team_Indias_Home_and_Household_Consumption_by_2030_SYNTHESIS2026.pdf",
+            "github": "https://github.com/divyanshupatel17/India-Consumption-Economy-2030-Research-Synthesis",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "ranking": "Top 7"
+          },
+          "competition": "Synthesis 2026, N. L. Dalmia Institute of Management Studies & Research",
+          "featured": true,
+          "tags": [
+            "economics",
+            "research",
+            "india",
+            "consumer-behavior",
+            "forecasting"
+          ]
+        },
+        {
+          "id": "dsrd",
+          "name": "Distributed Strike-Register Sync",
+          "title": "Distributed Strike-Register Desynchronization (DSRD) - TLS Protocol Enhancement",
+          "category": "Research & Concepts",
+          "status": "Active",
+          "shortDesc": "Cryptographic research addressing distributed strike-register synchronization in TLS protocols for improved security.",
+          "longDesc": "Advanced cryptographic research focusing on distributed strike-register desynchronization mechanisms in TLS protocols. Explores innovative approaches to enhance security and performance in distributed systems with synchronized state management.",
+          "techStack": [
+            "Python",
+            "C",
+            "OpenSSL",
+            "Python Cryptography",
+            "TLS",
+            "Network Security"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/dsrd-tls/blob/main/Distributed%20Strike-Register%20Desynchronization%20FINAL.pdf",
+            "github": "https://github.com/divyanshupatel17/dsrd-tls",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "citations": null,
+            "conference": null
+          },
+          "competition": null,
+          "featured": false,
+          "tags": [
+            "cryptography",
+            "security",
+            "distributed-systems",
+            "tls"
+          ]
+        },
+        {
+          "id": "schemasetu",
+          "name": "SchemaSetu",
+          "title": "SchemaSetu - AI Powered Welfare Access Platform",
+          "category": "Research & Concepts",
+          "status": "Coming Soon",
+          "shortDesc": "AI-powered platform making government welfare schemes accessible and understandable to citizens using NLP.",
+          "longDesc": "An innovative AI-powered platform designed to democratize access to government welfare schemes. Uses advanced natural language processing and machine learning to guide users through complex bureaucratic processes seamlessly.",
+          "techStack": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Express",
+            "TensorFlow",
+            "HuggingFace Transformers",
+            "BERT",
+            "spaCy",
+            "MongoDB",
+            "PostgreSQL",
+            "AWS SageMaker",
+            "AWS Lambda",
+            "Docker",
+            "Kubernetes"
+          ],
+          "links": {
+            "website": null,
+            "paper": "https://github.com/divyanshupatel17/schemasetu-aws-ai-bharat/blob/main/docs/SchemaSetu_AIforBharat_Presentation.pdf",
+            "github": "https://github.com/divyanshupatel17/schemasetu-aws-ai-bharat",
+            "playStore": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": null,
+            "deployments": null
+          },
+          "competition": "AWS AI for Bharat",
+          "featured": true,
+          "tags": [
+            "ai",
+            "nlp",
+            "government",
+            "welfare",
+            "accessibility",
+            "aws"
+          ]
+        }
+      ],
+      "previously_shipped": [
+        {
+          "id": "vit_verse",
+          "name": "VIT Verse",
+          "title": "VIT Verse - Campus Community Platform",
+          "category": "Previously Shipped",
+          "status": "Discontinued",
+          "shortDesc": "Campus social network platform that served VIT university community with 7,000+ active users.",
+          "longDesc": "A comprehensive social networking platform designed for VIT university students. Successfully facilitated campus-wide communication, event discovery, and community engagement before being discontinued.",
+          "techStack": [
+            "React",
+            "Flutter",
+            "Node.js",
+            "Firebase",
+            "Firestore",
+            "WebSockets",
+            "Material Design"
+          ],
+          "links": {
+            "website": null,
+            "playStore": null,
+            "github": null,
+            "paper": null,
+            "presentation": null
+          },
+          "metrics": {
+            "users": 7000,
+            "peakUsers": 7000,
+            "downloads": null
+          },
+          "competition": null,
+          "featured": false,
+          "tags": [
+            "social-network",
+            "campus",
+            "community",
+            "discontinued"
+          ]
+        }
+      ]
+    },
+    "summary": {
+      "totalByCategory": {
+        "products": 4,
+        "research_engineering": 4,
+        "research_concepts": 3,
+        "previously_shipped": 1
+      },
+      "totalProjects": 12,
+      "featuredProjects": 7,
+      "activeProjects": 11,
+      "comingSoonProjects": 1,
+      "discontinuedProjects": 1
+    },
+    "socialLinks": {
+      "github": "https://github.com/divyanshupatel17",
+      "portfolio": "https://divyanshupatel.com/",
+      "email": null,
+      "linkedin": null,
+      "twitter": null
+    }
+  }
+}

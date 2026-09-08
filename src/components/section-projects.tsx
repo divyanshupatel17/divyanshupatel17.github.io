@@ -1,155 +1,210 @@
-import { ArrowRight, ArrowUpRight, ExternalLink, Github, Play } from 'lucide-react'
-import type { ComponentType } from 'react'
+import { ArrowRight, ArrowUpRight, ExternalLink, FileText, Github, Play } from 'lucide-react'
+import { useState } from 'react'
 
-import { Magnet, Reveal, SpotlightCard } from './motion-primitives'
+import { projectCategories, type Project } from '../data/projects'
+import { Magnet, Reveal } from './motion-primitives'
 import { cn } from '../lib/utils'
 
-type Link = { label: string; href: string; Icon: ComponentType<{ className?: string }> }
+const pad = (n: number) => String(n).padStart(2, '0')
 
-type Project = {
-  name: string
-  description: string
-  gradient: string
-  stack: string[]
-  links: Link[]
-}
+// Notable affiliations/tags called out with a filled red chip instead of an outline one.
+const HIGHLIGHT_TAGS = new Set(['aws', 'isro', 'hackathon'])
 
-const projects: Project[] = [
-  {
-    name: 'Findr',
-    description: 'A smart lost & found platform for students.',
-    gradient: 'from-emerald-800 via-emerald-900 to-ink',
-    stack: ['Android', 'Kotlin', 'Firebase'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/divyanshupatel17', Icon: Github },
-      { label: 'Play Store', href: '#projects', Icon: Play },
-      { label: 'Live Demo', href: '#projects', Icon: ExternalLink },
-    ],
-  },
-  {
-    name: 'StudySync',
-    description: 'Collaborative learning platform for students.',
-    gradient: 'from-slate-200 via-slate-300 to-slate-500',
-    stack: ['Next.js', 'Tailwind', 'MongoDB'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/divyanshupatel17', Icon: Github },
-      { label: 'Live Demo', href: '#projects', Icon: ExternalLink },
-    ],
-  },
-  {
-    name: 'TaskMate',
-    description: 'A minimal and powerful task management app.',
-    gradient: 'from-slate-800 via-slate-900 to-ink',
-    stack: ['Kotlin', 'Firebase'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/divyanshupatel17', Icon: Github },
-      { label: 'Play Store', href: '#projects', Icon: Play },
-    ],
-  },
-  {
-    name: 'Portfolio',
-    description: 'My personal portfolio website.',
-    gradient: 'from-red-deep via-ink to-ink',
-    stack: ['React', 'Three.js', 'Tailwind'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/divyanshupatel17', Icon: Github },
-      { label: 'Live Demo', href: '#home', Icon: ExternalLink },
-    ],
-  },
-]
+function ProjectCard({
+  project,
+  centered,
+  delay,
+}: {
+  project: Project
+  centered: boolean
+  delay: number
+}) {
+  const { links } = project
+  const primaryLink = links.website ?? links.playStore ?? links.paper ?? links.presentation ?? links.github
 
-function ProjectCard({ project, className }: { project: Project; className?: string }) {
   return (
-    <SpotlightCard className={cn('group flex h-full flex-col border border-border bg-ink-soft/60', className)}>
-      <div className={cn('flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-to-br', project.gradient)}>
-        <span className="display text-2xl text-paper/25 transition-transform duration-700 group-hover:scale-105">
-          {project.name}
-        </span>
-      </div>
+    <Reveal
+      delay={delay}
+      className={cn(centered && 'sm:col-span-2 sm:mx-auto sm:w-[calc(50%-0.5rem)]')}
+    >
+      <div className="group relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-ink-soft transition-colors hover:border-red/50">
+        <video
+          src="/videos/project-preview.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-55 transition-opacity duration-500 group-hover:opacity-35"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10 transition-opacity duration-300 group-hover:opacity-90" />
 
-      <div className="flex flex-1 flex-col p-3.5">
-        <h3 className="display flex items-center gap-2 text-lg">
-          {project.name}
-          <ArrowUpRight className="h-3.5 w-3.5 text-red opacity-0 transition-opacity group-hover:opacity-100" />
-        </h3>
-        <p className="mt-1 font-mono text-[0.68rem] leading-relaxed text-muted-foreground">
-          {project.description}
-        </p>
+        {primaryLink && (
+          <a
+            href={primaryLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open ${project.name}`}
+            className="absolute right-3 top-3 z-20 grid h-8 w-8 place-items-center rounded-full border border-paper/25 bg-ink/50 text-paper backdrop-blur transition-colors hover:border-red hover:bg-red"
+          >
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        )}
 
-        <ul className="mt-2 flex flex-wrap gap-1.5">
-          {project.stack.map((tech) => (
-            <li key={tech} className="border border-border px-1.5 py-0.5 font-mono text-[0.58rem]">
-              {tech}
-            </li>
-          ))}
-        </ul>
+        <div className="absolute inset-0 z-10 flex flex-col justify-between p-4">
+          <div className="pr-10">
+            <h3 className="display text-xl text-paper sm:text-2xl">{project.name}</h3>
+            <p className="mt-1 max-w-xs font-mono text-[0.68rem] leading-snug text-paper/70">
+              {project.shortDesc}
+            </p>
+          </div>
 
-        <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-border pt-2.5">
-          {project.links.map(({ label, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith('#') ? undefined : '_blank'}
-              rel="noreferrer"
-              className="group/l inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-paper/80 transition-colors hover:text-red"
-            >
-              <Icon className="h-3 w-3" />
-              <span className="underline-offset-4 group-hover/l:underline">{label}</span>
-            </a>
-          ))}
+          <div className="flex flex-1 flex-col justify-end gap-2 py-2 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+            <div className="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={cn(
+                    'rounded-full border px-2 py-0.5 font-mono text-[0.58rem] uppercase tracking-wide',
+                    HIGHLIGHT_TAGS.has(tag.toLowerCase())
+                      ? 'border-red bg-red text-primary-foreground'
+                      : 'border-paper/30 text-paper/80',
+                  )}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p className="max-w-md font-mono text-[0.6rem] leading-relaxed text-paper/55">
+              {project.techStack.join(' · ')}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            {links.github && (
+              <a
+                href={links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-paper/85 transition-colors hover:text-red"
+              >
+                <Github className="h-3.5 w-3.5" />
+                GitHub
+              </a>
+            )}
+            {links.playStore && (
+              <a
+                href={links.playStore}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-paper/85 transition-colors hover:text-red"
+              >
+                <Play className="h-3.5 w-3.5" />
+                Play Store
+              </a>
+            )}
+            {links.website && (
+              <a
+                href={links.website}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-paper/85 transition-colors hover:text-red"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Live Demo
+              </a>
+            )}
+            {links.paper && (
+              <a
+                href={links.paper}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-paper/85 transition-colors hover:text-red"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                Paper
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </SpotlightCard>
+    </Reveal>
   )
 }
 
 export function SectionProjects() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const category = projectCategories[activeIndex]
+
   return (
     <section
       id="projects"
-      className="section-screen relative flex flex-col justify-center overflow-hidden bg-ink pt-20"
+      className="section-screen relative flex flex-col overflow-hidden bg-ink pt-32"
     >
       <div aria-hidden className="grid-texture absolute inset-0 opacity-50" />
 
       <div className="relative mx-auto w-full max-w-[1400px] px-5 py-6 md:px-10">
-        <Reveal className="label flex items-center gap-3 text-muted-foreground">
-          <span>A Few Things I Built</span>
-        </Reveal>
-
-        <div className="mt-3 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-          <h2 className="display text-[clamp(2.1rem,5.2vw,3.8rem)]">
-            <Reveal>Ideas into</Reveal>
-            <Reveal delay={0.08} className="mt-1 flex items-end gap-3 md:mt-2">
-              <span className="text-red">Real Products.</span>
-              <ArrowUpRight className="mb-1 hidden h-6 w-6 text-paper sm:block" />
+        <div className="grid gap-8 lg:grid-cols-[260px_1fr] lg:gap-10">
+          <div>
+            <Reveal className="label flex items-center gap-3 text-muted-foreground">
+              <span>A Few Things I Built</span>
             </Reveal>
-          </h2>
 
-          <div className="flex flex-wrap items-center gap-6">
-            <p className="hand max-w-[14rem] text-lg leading-tight text-paper">
-              Not just projects, but solutions to real problems.
-              <span className="mt-1 block h-0.5 w-14 -skew-x-12 bg-red" />
-            </p>
-            <Magnet strength={8}>
-              <a
-                href="https://github.com/divyanshupatel17"
-                target="_blank"
-                rel="noreferrer"
-                className="label group inline-flex items-center gap-2 rounded-full border border-paper/25 px-5 py-2.5 text-paper transition-colors hover:border-red hover:bg-red"
-              >
-                View All Projects
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Magnet>
+            <h2 className="display mt-3 text-[clamp(2.1rem,4.6vw,3.2rem)]">
+              <Reveal>Ideas into</Reveal>
+              <Reveal delay={0.08} className="mt-1 flex items-center gap-2">
+                <span className="text-red">Real Products.</span>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-paper" />
+              </Reveal>
+            </h2>
+
+            <Reveal delay={0.14}>
+              <nav className="mt-8 flex flex-col">
+                {projectCategories.map((cat, i) => (
+                  <button
+                    key={cat.key}
+                    onClick={() => setActiveIndex(i)}
+                    className={cn(
+                      'label flex items-center justify-between gap-3 border-l-2 py-3 pl-4 text-left transition-colors',
+                      i === activeIndex
+                        ? 'border-red text-paper'
+                        : 'border-border text-muted-foreground hover:border-paper/40 hover:text-paper',
+                    )}
+                  >
+                    <span>{cat.label}</span>
+                    <span className="font-mono text-[0.65rem]">{pad(i + 1)}</span>
+                  </button>
+                ))}
+              </nav>
+            </Reveal>
+
+            <Reveal delay={0.2} className="mt-8">
+              <Magnet strength={8}>
+                <a
+                  href="https://github.com/divyanshupatel17"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="label group inline-flex items-center gap-2 rounded-full border border-paper/25 px-5 py-2.5 text-paper transition-colors hover:border-red hover:bg-red"
+                >
+                  <Github className="h-3.5 w-3.5" />
+                  View All Projects
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Magnet>
+            </Reveal>
           </div>
-        </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {projects.map((project, i) => (
-            <Reveal key={project.name} delay={0.06 * i}>
-              <ProjectCard project={project} className="h-full" />
-            </Reveal>
-          ))}
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {category.projects.map((project, i) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  centered={category.projects.length % 2 === 1 && i === category.projects.length - 1}
+                  delay={0.06 * i}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,10 +1,11 @@
 import { ArrowUp } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
-import { socials } from './icons'
+import { useSocials } from './icons'
 import { TargetCursor } from './target-cursor'
 
 export function SiteFooter() {
+  const socials = useSocials()
   const footerRef = useRef<HTMLElement>(null)
   const [cursorActive, setCursorActive] = useState(false)
 

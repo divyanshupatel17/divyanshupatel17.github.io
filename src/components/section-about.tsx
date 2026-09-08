@@ -17,9 +17,9 @@ const cards = [
 const GLOW_COLORS = ['#ff6a52', '#d8101f', '#7a0710']
 
 const stats = [
-  { value: 10, suffix: '+', label: 'Projects' },
-  { value: 3, suffix: '', label: 'Apps / Products' },
-  { value: 6, suffix: '', label: 'Certifications' },
+  { value: 12, suffix: '+', label: 'Projects' },
+  { value: 4, suffix: '+', label: 'Apps / Products' },
+  { value: 10, suffix: 'K+', label: 'Users' },
   { value: null, suffix: '∞', label: 'Things to Explore' },
 ]
 
